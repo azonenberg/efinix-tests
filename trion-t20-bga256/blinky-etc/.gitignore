@@ -1,5 +1,5 @@
 outflow
-work_pnr
-work_syn
-work_pt
+work_*
 .lock
+*.vcd
+*.log*
