@@ -64,6 +64,10 @@
         }
       ],
       "drc_exclusions": [
+        "silk_edge_clearance|71000000|38500000|a190ae37-71d9-4c47-8cbd-6562ade3d014|36bdae8c-0421-4447-87d2-bed2f606bece",
+        "silk_edge_clearance|89000000|38500000|a190ae37-71d9-4c47-8cbd-6562ade3d014|7602b572-fbb8-4bb8-82e6-3eb6062ab5b9",
+        "silk_over_copper|71000000|40682613|36bdae8c-0421-4447-87d2-bed2f606bece|00000000-0000-0000-0000-000000000000",
+        "silk_over_copper|89000000|39957387|7602b572-fbb8-4bb8-82e6-3eb6062ab5b9|00000000-0000-0000-0000-000000000000",
         "silk_over_copper|90650000|88480000|8119a8cc-b66d-44b7-82fb-bc7cb5d0d837|00000000-0000-0000-0000-000000000000"
       ],
       "meta": {
@@ -494,7 +498,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "output/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
