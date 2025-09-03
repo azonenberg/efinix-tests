@@ -81,11 +81,10 @@ volatile APB_SPIHostInterface F3V3_SPI  __attribute__((section(".f3v3_spi")));
 /**
 	@brief UART console
 
-	FIXME
-	Default after reset is for UART4 to be clocked by PCLK1 (APB1 clock) which is 62.5 MHz
-	So we need a divisor of 542.53
+	Default after reset is for UART1 to be clocked by PCLK2 (APB2 clock) which is 112.5 MHz
+	So we need a divisor of 976.56
  */
-UART<32, 256> g_cliUART(&USART1, 543);
+UART<32, 256> g_cliUART(&USART1, 977);
 
 /**
 	@brief MCU GPIO LEDs
@@ -157,14 +156,10 @@ void BSP_Init()
 	g_leds[1] = 1;
 	g_leds[2] = 1;
 	g_leds[3] = 1;
-	while(1)
-	{
-	}
 
-	/*
 	//Set up PLL2 to run the external memory bus
 	//We have some freedom with how fast we clock this!
-	//Doesn't have to be a multiple of 500 since separate VCO from the main system
+	//Doesn't have to be a multiple of CPU clock since separate VCO from the main system
 	RCCHelper::InitializePLL(
 		2,		//PLL2
 		25,		//input is 25 MHz from the HSE
@@ -172,13 +167,13 @@ void BSP_Init()
 		24,		//12.5 * 24 = 300 MHz at the VCO
 		32,		//div P (not used for now)
 		32,		//div Q (not used for now)
-		1,		//div R (300 MHz FMC kernel clock = 150 MHz FMC clock)
+		2,		//div R (150 MHz FMC kernel clock = 75 MHz FMC clock)
 		RCCHelper::CLOCK_SOURCE_HSE
 	);
 
 	InitRTCFromHSE();
-	InitSupervisor();
 	InitFMC();
+	/*
 	InitFPGA();
 	InitFPGAFlash();
 	DoInitKVS();
@@ -190,6 +185,10 @@ void BSP_Init()
 
 	App_Init();
 	*/
+
+	while(1)
+	{
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -217,17 +216,15 @@ void InitITM()
 
 void BSP_InitUART()
 {
-	/*
-	//Initialize the UART for local console: 115.2 Kbps using PA12 for UART4 transmit and PA11 for UART4 receive
+	//Initialize the UART for local console: 115.2 Kbps using PA9 for UART1 transmit and PA10 for UART1 receive
 	//TODO: nice interface for enabling UART interrupts
-	static GPIOPin uart_tx(&GPIOA, 12, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 6);
-	static GPIOPin uart_rx(&GPIOA, 11, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 6);
+	static GPIOPin uart_tx(&GPIOA, 9, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 7);
+	static GPIOPin uart_rx(&GPIOA, 10, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 7);
 
 	//Enable the UART interrupt
-	NVIC_EnableIRQ(52);
+	NVIC_EnableIRQ(37);
 
 	g_logTimer.Sleep(10);	//wait for UART pins to be high long enough to remove any glitches during powerup
-	*/
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -235,9 +232,12 @@ void BSP_InitUART()
 
 void InitFMC()
 {
-	/*
 	g_log("Initializing FMC...\n");
 	LogIndenter li(g_log);
+
+	g_log("Delay for startup...\n");
+	g_logTimer.Sleep(20000);
+	g_log("Continuing\n");
 
 	static GPIOPin fmc_ad0(&GPIOD, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad1(&GPIOD, 15, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
@@ -248,8 +248,8 @@ void InitFMC()
 	static GPIOPin fmc_ad6(&GPIOE, 9, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad7(&GPIOE, 10, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad8(&GPIOE, 11, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_ad9(&GPIOA, 5, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_ad10(&GPIOB, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	static GPIOPin fmc_ad9(&GPIOE, 12, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	static GPIOPin fmc_ad10(&GPIOE, 13, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad11(&GPIOE, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad12(&GPIOE, 15, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad13(&GPIOD, 8, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
@@ -263,14 +263,16 @@ void InitFMC()
 	static GPIOPin fmc_a20(&GPIOE, 4, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_a21(&GPIOE, 5, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_a22(&GPIOE, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_a23(&GPIOE, 2, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_a24(&GPIOG, 13, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_a25(&GPIOG, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	//no A23...25 pinned out on this board
+	//static GPIOPin fmc_a23(&GPIOE, 2, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, FIXME);
+	//static GPIOPin fmc_a24(&GPIOG, 13, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, FIXME);
+	//static GPIOPin fmc_a25(&GPIOG, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, FIXME);
 
 	static GPIOPin fmc_nl_nadv(&GPIOB, 7, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
-	static GPIOPin fmc_nwait(&GPIOC, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 9);
-	static GPIOPin fmc_ne1(&GPIOC, 7, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 9);
-	static GPIOPin fmc_ne3(&GPIOG, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	static GPIOPin fmc_nwait(&GPIOD, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	static GPIOPin fmc_ne1(&GPIOD, 7, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
+	//static GPIOPin fmc_ne3(&GPIOG, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, FIXME);
+
 	static GPIOPin fmc_clk(&GPIOD, 3, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_noe(&GPIOD, 4, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_nwe(&GPIOD, 5, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
@@ -282,6 +284,7 @@ void InitFMC()
 
 	InitFMCForFPGA();
 
+	/*
 	//Initialize the LEDs
 	for(auto& led : g_fpgaLEDs)
 		led.DeferredInit();

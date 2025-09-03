@@ -40,7 +40,6 @@
 
 #include <APB_Curve25519.h>
 #include <APB_GPIO.h>
-#include <APB_SerialLED.h>
 #include <APB_SPIHostInterface.h>
 #include <APB_EthernetRxBuffer.h>
 #include <APB_EthernetTxBuffer_10G.h>
@@ -59,9 +58,9 @@
 #include <boilerplate/h750/StandardBSP.h>
 #include <fpga/FMCUtils.h>
 
-/*
 void App_Init();
 void InitFMC();
+/*
 void InitFPGAFlash();
 void InitI2C();
 
