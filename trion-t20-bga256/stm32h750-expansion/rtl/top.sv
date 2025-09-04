@@ -31,7 +31,17 @@
 
 module top(
 	input wire			clk_50mhz,
+
+	//FMC interface
 	input wire			fmc_clk,
+	output wire			fmc_nwait,
+	input wire			fmc_noe,
+	inout wire[15:0]	fmc_ad,
+	input wire			fmc_nwe,
+	input wire[1:0]		fmc_nbl,
+	input wire			fmc_nl_nadv,
+	input wire[6:0]		fmc_a_hi,
+	input wire			fmc_ne1,
 
 	output wire[7:0]	led_n
 );
@@ -60,22 +70,17 @@ module top(
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// PLL
 
-	//not synchronized to anything, may glitch, probably useless lol
 	wire	pll_lock;
-	always_ff @(posedge clk_50mhz) begin
-		led_int[7]	<= pll_lock;
-		led_int[6]	<= pll_rst_n;
-	end
-
 	wire	pclk;
 	EFX_PLL_V2 #(
 		.N(1),				//pre divide = 1, so 75 MHz at the PFD (range 10 - 100)
-		.M(10),				//multiplier 10, so 750 MHz at the VCO (range 500 - 1600 for internal FB, 500 - 3600 for other)
-		.O(2),				//post divider between VCO and all outputs (must be 2 or higher if multiple outputs active)
-		.CLKOUT0_DIV(5),	//75 MHz output but with adjustable phase
+		.M(16),				//multiplier 16, so 1200 MHz at the VCO (range 500 - 1600 for internal FB, 500 - 3600 for other)
+		.O(4),				//post divider between VCO and all outputs
+							//(must be 2 or higher if multiple outputs active)
+		.CLKOUT0_DIV(4),	//75 MHz output but with adjustable phase
 		.CLKOUT1_DIV(128),	//not used, slow to save power
 		.CLKOUT2_DIV(128),	//not used, slow to save power
-		.CLKOUT0_PHASE(0),
+		.CLKOUT0_PHASE(45),
 		.CLKOUT1_PHASE(0),
 		.CLKOUT2_PHASE(0),
 		.FEEDBACK_CLK("INTERNAL"),
@@ -92,11 +97,86 @@ module top(
 		.LOCKED(pll_lock)
 	);
 
-	logic[20:0] count = 0;
+	//Synchronize PLL lock signal into the APB clock domain
+	wire	pll_lock_sync;
+	ThreeStageSynchronizer #(
+		.IN_REG(0)
+	) sync_pll_lock(
+		.clk_in(pclk),
+		.din(pll_lock),
+		.clk_out(pclk),
+		.dout(pll_lock_sync));
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// APB bridge
+
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(25), .USER_WIDTH(0)) fmc_apb();
+	APB #(.DATA_WIDTH(64), .ADDR_WIDTH(25), .USER_WIDTH(0)) fmc_apb64();
+
+	FMC_APBBridge_EFX bridge(
+		.apb_x32(fmc_apb),
+		.apb_x64(fmc_apb64),
+
+		.pll_lock(pll_lock),
+
+		.fmc_clk(pclk),
+		.fmc_nwait(fmc_nwait),
+		.fmc_noe(fmc_noe),
+		.fmc_ad(fmc_ad),
+		.fmc_nwe(fmc_nwe),
+		.fmc_nbl(fmc_nbl),
+		.fmc_nl_nadv(fmc_nl_nadv),
+		.fmc_a_hi({3'b0, fmc_a_hi}),
+		.fmc_cs_n(fmc_ne1)
+	);
+
+	//Root APB interconnect
+	//Two 16-bit bus segments at 0xc000_0000 (APB1) and c001_0000 (APB2) for core peripherals
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(16), .USER_WIDTH(0)) rootAPB[1:0]();
+	APBBridge #(
+		.BASE_ADDR(32'h0000_0000),
+		.BLOCK_SIZE(32'h1_0000),
+		.NUM_PORTS(2)
+	) root_bridge (
+		.upstream(fmc_apb),
+		.downstream(rootAPB)
+	);
+
+	//APB1 segment
+	localparam NUM_PERIPHERALS	= 7;
+	localparam BLOCK_SIZE		= 32'h400;
+	localparam ADDR_WIDTH		= $clog2(BLOCK_SIZE);
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) apb1[NUM_PERIPHERALS-1:0]();
+	APBBridge #(
+		.BASE_ADDR(32'h0000_0000),
+		.BLOCK_SIZE(BLOCK_SIZE),
+		.NUM_PORTS(NUM_PERIPHERALS)
+	) apb1_bridge (
+		.upstream(rootAPB[0]),
+		.downstream(apb1)
+	);
+
+	wire[31:0]	gpio_out;
+	APB_GPIO gpio(
+		.apb(apb1[0]),
+		.gpio_out(gpio_out),
+		.gpio_in(gpio_out),	//loop back for readback
+		.gpio_tris()
+	);
+
+	//hang some random stuff off another apb to prevent overly aggressive optimization of bits
+	APB_GPIO gpio2(
+		.apb(apb1[1]),
+		.gpio_out(),
+		.gpio_in(32'hffffffff),
+		.gpio_tris()
+	);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Debug LEDs
+
 	always_ff @(posedge pclk) begin
-		count <= count + 1;
-		if(count == 0)
-			led_int[5:0]	<= led_int[5:0] + 1;
+		led_int	<= gpio_out[7:0];
 	end
 
 endmodule

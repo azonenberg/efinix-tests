@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<efxpt:design_db name="stm32-test" device_def="T20F256" version="2025.1.110" db_version="20251999" last_change_date="Thu Sep  4 07:05:32 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
+    <efxpt:device_info>
+        <efxpt:iobank_info>
+            <efxpt:iobank name="1A" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="1B_1C" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="1D_1E" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="3A_3B_3C" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="3D_3E" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="4A" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="4B" iostd="3.3 V LVTTL / LVCMOS"/>
+            <efxpt:iobank name="BR" iostd="1.2 V"/>
+            <efxpt:iobank name="TL" iostd="1.2 V"/>
+            <efxpt:iobank name="TR" iostd="1.2 V"/>
+        </efxpt:iobank_info>
+        <efxpt:ctrl_info>
+            <efxpt:ctrl name="cfg" ctrl_def="CONFIG_CTRL0" clock_name="" is_clk_invert="false" cbsel_bus_name="cfg_CBSEL" config_ctrl_name="cfg_CONFIG" ena_capture_name="cfg_ENA" error_status_name="cfg_ERROR" um_signal_status_name="cfg_USR_STATUS" is_remote_update_enable="false" is_user_mode_enable="false"/>
+        </efxpt:ctrl_info>
+    </efxpt:device_info>
+    <efxpt:gpio_info device_def="T20F256">
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[0].iobuf" gpio_def="GPIOL_73" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[0].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[0].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[0].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[0].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[0].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[0].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[10].iobuf" gpio_def="GPIOL_56" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[10].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[10].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[10].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[10].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[10].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[10].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[11].iobuf" gpio_def="GPIOL_59" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[11].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[11].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[11].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[11].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[11].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[11].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[12].iobuf" gpio_def="GPIOL_61" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[12].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[12].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[12].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[12].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[12].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[12].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[13].iobuf" gpio_def="GPIOL_68" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[13].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[13].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[13].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[13].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[13].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[13].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[14].iobuf" gpio_def="GPIOL_70" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[14].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[14].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[14].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[14].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[14].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[14].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[15].iobuf" gpio_def="GPIOL_69" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[15].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[15].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[15].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[15].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[15].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[15].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[1].iobuf" gpio_def="GPIOL_66" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[1].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[1].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[1].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[1].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[1].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[1].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[2].iobuf" gpio_def="GPIOL_62" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[2].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[2].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[2].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[2].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[2].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[2].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[3].iobuf" gpio_def="GPIOL_60" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[3].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[3].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[3].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[3].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[3].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[3].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[4].iobuf" gpio_def="GPIOL_57" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[4].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[4].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[4].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[4].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[4].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[4].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[5].iobuf" gpio_def="GPIOL_54" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[5].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[5].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[5].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[5].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[5].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[5].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[6].iobuf" gpio_def="GPIOL_52" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[6].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[6].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[6].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[6].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[6].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[6].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[7].iobuf" gpio_def="GPIOL_49" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[7].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[7].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[7].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[7].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[7].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[7].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[8].iobuf" gpio_def="GPIOL_55" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[8].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[8].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[8].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[8].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[8].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[8].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="bridge/ad_iobuf/buffers[9].iobuf" gpio_def="GPIOL_58" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[9].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="bridge/ad_iobuf/buffers[9].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="bridge/ad_iobuf/buffers[9].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="bridge/ad_iobuf/buffers[9].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pulldown" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="bridge/ad_iobuf/buffers[9].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="bridge/ad_iobuf/buffers[9].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="clk_50mhz" gpio_def="GPIOR_125" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="CONN_TYPE" value="GCLK"/>
+                <efxpt:netlist_parameter name="IN_PIN" value="clk_50mhz"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="clk_50mhz" name_ddio_lo="" conn_type="gclk" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[0]" gpio_def="GPIOL_67" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[0]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[0]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[1]" gpio_def="GPIOL_71" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[1]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[1]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[2]" gpio_def="GPIOL_72" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[2]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[2]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[3]" gpio_def="GPIOL_44" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[3]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[3]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[4]" gpio_def="GPIOL_46" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[4]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[4]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[5]" gpio_def="GPIOL_47" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[5]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[5]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_a_hi[6]" gpio_def="GPIOL_50" mode="input" bus_name="fmc_a_hi" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_a_hi[6]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_a_hi[6]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_clk" gpio_def="GPIOL_74" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="CONN_TYPE" value="PLL_CLKIN"/>
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_clk"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_clk" name_ddio_lo="" conn_type="pll_clkin" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_nbl[0]" gpio_def="GPIOL_45" mode="input" bus_name="fmc_nbl" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_nbl[0]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_nbl[0]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_nbl[1]" gpio_def="GPIOL_48" mode="input" bus_name="fmc_nbl" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_nbl[1]"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_nbl[1]" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_ne1" gpio_def="GPIOL_53" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_ne1"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_ne1" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_nl_nadv" gpio_def="GPIOL_51" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_nl_nadv"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_nl_nadv" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_noe" gpio_def="GPIOL_63" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_noe"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_noe" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_nwait" gpio_def="GPIOL_64" mode="output" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="fmc_nwait"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="fmc_nwait" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="fmc_nwe" gpio_def="GPIOL_65" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="fmc_nwe"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="fmc_nwe" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[0]" gpio_def="GPIOR_104" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[0]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[0]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[1]" gpio_def="GPIOR_105" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[1]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[1]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[2]" gpio_def="GPIOR_117" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[2]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[2]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[3]" gpio_def="GPIOR_118" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[3]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[3]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[4]" gpio_def="GPIOR_153" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[4]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[4]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[5]" gpio_def="GPIOR_154" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[5]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[5]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[6]" gpio_def="GPIOR_155" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[6]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[6]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="led_n[7]" gpio_def="GPIOR_156" mode="output" bus_name="led_n" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="led_n[7]"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="led_n[7]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:global_unused_config state="input with weak pullup"/>
+        <efxpt:bus name="fmc_nbl" mode="input" msb="1" lsb="0"/>
+        <efxpt:bus name="fmc_a_hi" mode="input" msb="6" lsb="0"/>
+        <efxpt:bus name="led_n" mode="output" msb="7" lsb="0"/>
+    </efxpt:gpio_info>
+    <efxpt:pll_info>
+        <efxpt:pll name="pll" pll_def="PLL_TL0" ref_clock_name="" ref_clock_freq="75.0000" multiplier="16" pre_divider="1" post_divider="4" reset_name="pll~RSTN" locked_name="pll~LOCKED" is_ipfrz="false" is_bypass_lock="true">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="CLKOUT0_EN" value="1"/>
+                <efxpt:netlist_parameter name="CLKOUT0_PIN" value="pll~CLKOUT0"/>
+                <efxpt:netlist_parameter name="CLKOUT1_EN" value="0"/>
+                <efxpt:netlist_parameter name="CLKOUT2_EN" value="0"/>
+                <efxpt:netlist_parameter name="FEEDBACK_MODE" value="INTERNAL"/>
+                <efxpt:netlist_parameter name="LOCKED_PIN" value="pll~LOCKED"/>
+                <efxpt:netlist_parameter name="REFCLK_SOURCE" value="EXTERNAL"/>
+                <efxpt:netlist_parameter name="RSTN_PIN" value="pll~RSTN"/>
+            </efxpt:netlist_config>
+            <efxpt:output_clock name="pll~CLKOUT0" number="0" out_divider="4" adv_out_phase_shift="45" conn_type="gclk"/>
+            <efxpt:adv_prop ref_clock_mode="external" ref_clock1_name="" ext_ref_clock_id="2" clksel_name="" feedback_clock_name="" feedback_mode="internal"/>
+        </efxpt:pll>
+    </efxpt:pll_info>
+    <efxpt:lvds_info/>
+    <efxpt:jtag_info/>
+    <efxpt:partial_design source="stm32-test.peri.db"/>
+</efxpt:design_db>

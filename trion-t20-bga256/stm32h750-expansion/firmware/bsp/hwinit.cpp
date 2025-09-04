@@ -81,10 +81,10 @@ volatile APB_SPIHostInterface F3V3_SPI  __attribute__((section(".f3v3_spi")));
 /**
 	@brief UART console
 
-	Default after reset is for UART1 to be clocked by PCLK2 (APB2 clock) which is 112.5 MHz
-	So we need a divisor of 976.56
+	Default after reset is for UART1 to be clocked by PCLK2 (APB2 clock) which is 118.75 MHz
+	So we need a divisor of 1030.81
  */
-UART<32, 256> g_cliUART(&USART1, 977);
+UART<32, 256> g_cliUART(&USART1, 1031);
 
 /**
 	@brief MCU GPIO LEDs
@@ -186,6 +186,18 @@ void BSP_Init()
 	App_Init();
 	*/
 
+	g_log("waiting again...\n");
+	g_logTimer.Sleep(20000);
+	g_logTimer.Sleep(20000);
+	g_logTimer.Sleep(20000);
+	g_log("writing to fmc...\n");
+	volatile uint32_t* p = reinterpret_cast<volatile uint32_t*>(0xc0000000);
+	*p = 0x55;
+	uint32_t t =*p;
+	uint32_t t2 = p[0x404];
+	g_log("done, readback = %08x, %08x\n", t, t2);
+
+
 	while(1)
 	{
 	}
@@ -236,7 +248,7 @@ void InitFMC()
 	LogIndenter li(g_log);
 
 	g_log("Delay for startup...\n");
-	g_logTimer.Sleep(20000);
+	g_logTimer.Sleep(10000);
 	g_log("Continuing\n");
 
 	static GPIOPin fmc_ad0(&GPIOD, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
