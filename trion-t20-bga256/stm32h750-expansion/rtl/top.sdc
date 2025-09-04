@@ -5,7 +5,7 @@ create_clock -period 20 -waveform {0.0 10.0} -name clk_50mhz [get_ports clk_50mh
 #create_clock -period 13.333 -waveform {0.0 6.666} -name fmc_clk [get_ports fmc_clk]
 
 # Constrain pll output
-create_clock -period 13.333 -waveform {0.0 6.666} -name pclk [get_ports \bridge/pll~CLKOUT0]
+create_clock -period 13.333 -waveform {0.0 6.666} -name pclk [get_ports \pll~CLKOUT0]
 
 # for now make them async
 #set_clock_groups -asynchronous -group [get_clocks clk_50mhz] -group [get_clocks pclk]
