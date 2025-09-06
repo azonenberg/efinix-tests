@@ -34,6 +34,7 @@
  */
 #include <core/platform.h>
 #include "hwinit.h"
+#include <peripheral/QuadSPI.h>
 /*
 #include <peripheral/FMC.h>
 #include <peripheral/DWT.h>
@@ -144,19 +145,21 @@ volatile BootloaderBBRAM* g_bbram = reinterpret_cast<volatile BootloaderBBRAM*>(
 SSHKeyManager g_keyMgr;
 */
 
+/*
+	Initialize the QSPI block assuming 128 Mbits to start
+	QSPI kernel clock defaults to HCLK3 which is 237.5 MHz
+	Divide by 4 gives 59.375 MHz which should be fairly safe to start
+ */
+QuadSPI_SpiFlashInterface g_flashQspi(&_QUADSPI, 128 * 1024 * 1024, 4);
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Do other initialization
 
 void InitITM();
+void InitQSPI();
 
 void BSP_Init()
 {
-	//DEBUG: turn on all LEDs
-	g_leds[0] = 1;
-	g_leds[1] = 1;
-	g_leds[2] = 1;
-	g_leds[3] = 1;
-
 	//Set up PLL2 to run the external memory bus
 	//We have some freedom with how fast we clock this!
 	//Doesn't have to be a multiple of CPU clock since separate VCO from the main system
@@ -171,12 +174,17 @@ void BSP_Init()
 		RCCHelper::CLOCK_SOURCE_HSE
 	);
 
+	g_leds[0] = 1;
+
 	InitRTCFromHSE();
+	InitQSPI();
+	DoInitKVS();
 	InitFMC();
 	/*
 	InitFPGA();
 	InitFPGAFlash();
-	DoInitKVS();
+	*/
+	/*
 	InitI2C();
 	InitMacEEPROM();
 	InitManagementPHY();
@@ -186,8 +194,7 @@ void BSP_Init()
 	App_Init();
 	*/
 
-	g_log("waiting again...\n");
-	g_logTimer.Sleep(20000);
+	g_log("waiting for fmc...\n");
 	g_logTimer.Sleep(20000);
 	g_logTimer.Sleep(20000);
 	g_log("writing to fmc...\n");
@@ -196,7 +203,6 @@ void BSP_Init()
 	uint32_t t =*p;
 	uint32_t t2 = p[0x404];
 	g_log("done, readback = %08x, %08x\n", t, t2);
-
 
 	while(1)
 	{
@@ -242,14 +248,52 @@ void BSP_InitUART()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Higher level initialization we used for a lot of stuff
 
+void InitQSPI()
+{
+	g_log("Initializing QSPI...\n");
+
+	//Set up QSPI pins
+	g_leds[1] = 1;
+	static GPIOPin quadspi_sck(&GPIOB, 2, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 9);
+	static GPIOPin quadspi_cs_n(&GPIOB, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 10);
+	static GPIOPin quadspi_dq0(&GPIOF, 8, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 10);
+	static GPIOPin quadspi_dq1(&GPIOF, 9, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 10);
+	static GPIOPin quadspi_dq2(&GPIOF, 7, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 9);
+	static GPIOPin quadspi_dq3(&GPIOF, 6, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_FAST, 9);
+
+	//Bring the QSPI up in memory mapped mode
+	g_leds[2] = 1;
+	g_flashQspi.SetDoubleRateMode(false);
+	g_flashQspi.SetInstructionMode(QuadSPI::MODE_SINGLE);
+	g_flashQspi.SetAddressMode(QuadSPI::MODE_SINGLE, 3);
+	g_flashQspi.SetAltBytesMode(QuadSPI::MODE_NONE, 0);
+	g_flashQspi.SetDataMode(QuadSPI::MODE_SINGLE);
+	g_flashQspi.SetDummyCycleCount(8);
+	g_flashQspi.SetDeselectTime(1);
+	g_flashQspi.SetFifoThreshold(1);
+	g_flashQspi.Enable();
+	g_leds[3] = 1;
+
+	//break point in case of issues
+	g_logTimer.Sleep(5000);
+
+	g_flashQspi.Discover();
+
+	//fail to detect flash if size is implausibly small
+	if(g_flashQspi.GetFlashSize() < 4096 )
+	{
+		g_log(Logger::ERROR, "Failed to detect SPI flash\n");
+		while(1)
+		{}
+	}
+
+	g_flashQspi.MemoryMap();
+}
+
 void InitFMC()
 {
 	g_log("Initializing FMC...\n");
 	LogIndenter li(g_log);
-
-	g_log("Delay for startup...\n");
-	g_logTimer.Sleep(10000);
-	g_log("Continuing\n");
 
 	static GPIOPin fmc_ad0(&GPIOD, 14, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
 	static GPIOPin fmc_ad1(&GPIOD, 15, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_VERYFAST, 12);
