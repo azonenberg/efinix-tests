@@ -3,7 +3,7 @@
         {
             "name": "la0",
             "type": "la",
-            "uuid": "3f46168beb1c48d7ae6a1c1359f40488",
+            "uuid": "f9e976e490fc415bbd7216bfe561a874",
             "trigin_en": false,
             "trigout_en": false,
             "auto_inserted": true,
@@ -12,42 +12,7 @@
             "input_pipeline": 1,
             "probes": [
                 {
-                    "name": "apb1/mdio/apb_pwdata",
-                    "width": 32,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/phy_wr_data",
-                    "width": 16,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/apb_pstrb",
-                    "width": 4,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/phy_reg_addr",
-                    "width": 5,
-                    "probe_type": 1
-                },
-                {
                     "name": "apb1/mdio/mdc",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/phy_rd_data",
-                    "width": 16,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/apb_pwrite",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/apb_pslverr",
                     "width": 1,
                     "probe_type": 1
                 },
@@ -57,7 +22,12 @@
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_pready",
+                    "name": "apb1/mdio/apb_prdata",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb1/mdio/apb_pwrite",
                     "width": 1,
                     "probe_type": 1
                 },
@@ -67,23 +37,8 @@
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_psel",
+                    "name": "apb1/mdio/apb_pready",
                     "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/phy_reg_rd",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/phy_reg_wr",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/apb_prdata",
-                    "width": 32,
                     "probe_type": 1
                 },
                 {
@@ -92,12 +47,32 @@
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/mdio_rx_data",
+                    "name": "apb1/mdio/phy_rd_data",
+                    "width": 16,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb1/mdio/phy_reg_wr",
                     "width": 1,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/mdio_busy",
+                    "name": "apb1/mdio/phy_wr_data",
+                    "width": 16,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb1/mdio/apb_psel",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb1/mdio/phy_reg_addr",
+                    "width": 5,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb1/mdio/phy_reg_rd",
                     "width": 1,
                     "probe_type": 1
                 }
@@ -231,463 +206,7 @@
                         "path": []
                     },
                     {
-                        "name": "la0_probe0[0]",
-                        "net": "apb_pwdata[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[1]",
-                        "net": "apb_pwdata[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[2]",
-                        "net": "apb_pwdata[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[3]",
-                        "net": "apb_pwdata[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[4]",
-                        "net": "apb_pwdata[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[5]",
-                        "net": "apb_pwdata[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[6]",
-                        "net": "apb_pwdata[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[7]",
-                        "net": "apb_pwdata[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[8]",
-                        "net": "apb_pwdata[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[9]",
-                        "net": "apb_pwdata[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[10]",
-                        "net": "apb_pwdata[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[11]",
-                        "net": "apb_pwdata[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[12]",
-                        "net": "apb_pwdata[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[13]",
-                        "net": "apb_pwdata[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[14]",
-                        "net": "apb_pwdata[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[15]",
-                        "net": "apb_pwdata[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[16]",
-                        "net": "apb_pwdata[16]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[17]",
-                        "net": "apb_pwdata[17]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[18]",
-                        "net": "apb_pwdata[18]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[19]",
-                        "net": "apb_pwdata[19]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[20]",
-                        "net": "apb_pwdata[20]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[21]",
-                        "net": "apb_pwdata[21]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[22]",
-                        "net": "apb_pwdata[22]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[23]",
-                        "net": "apb_pwdata[23]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[24]",
-                        "net": "apb_pwdata[24]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[25]",
-                        "net": "apb_pwdata[25]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[26]",
-                        "net": "apb_pwdata[26]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[27]",
-                        "net": "apb_pwdata[27]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[28]",
-                        "net": "apb_pwdata[28]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[29]",
-                        "net": "apb_pwdata[29]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[30]",
-                        "net": "apb_pwdata[30]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[31]",
-                        "net": "apb_pwdata[31]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[0]",
-                        "net": "phy_wr_data[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[1]",
-                        "net": "phy_wr_data[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[2]",
-                        "net": "phy_wr_data[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[3]",
-                        "net": "phy_wr_data[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[4]",
-                        "net": "phy_wr_data[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[5]",
-                        "net": "phy_wr_data[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[6]",
-                        "net": "phy_wr_data[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[7]",
-                        "net": "phy_wr_data[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[8]",
-                        "net": "phy_wr_data[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[9]",
-                        "net": "phy_wr_data[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[10]",
-                        "net": "phy_wr_data[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[11]",
-                        "net": "phy_wr_data[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[12]",
-                        "net": "phy_wr_data[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[13]",
-                        "net": "phy_wr_data[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[14]",
-                        "net": "phy_wr_data[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe1[15]",
-                        "net": "phy_wr_data[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[0]",
-                        "net": "apb_pstrb[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[1]",
-                        "net": "apb_pstrb[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[2]",
-                        "net": "apb_pstrb[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[3]",
-                        "net": "apb_pstrb[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe3[0]",
-                        "net": "phy_reg_addr[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe3[1]",
-                        "net": "phy_reg_addr[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe3[2]",
-                        "net": "phy_reg_addr[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe3[3]",
-                        "net": "phy_reg_addr[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe3[4]",
-                        "net": "phy_reg_addr[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe4",
+                        "name": "la0_probe0",
                         "net": "mdc",
                         "path": [
                             "apb1",
@@ -695,151 +214,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe5[0]",
-                        "net": "phy_rd_data[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[1]",
-                        "net": "phy_rd_data[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[2]",
-                        "net": "phy_rd_data[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[3]",
-                        "net": "phy_rd_data[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[4]",
-                        "net": "phy_rd_data[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[5]",
-                        "net": "phy_rd_data[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[6]",
-                        "net": "phy_rd_data[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[7]",
-                        "net": "phy_rd_data[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[8]",
-                        "net": "phy_rd_data[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[9]",
-                        "net": "phy_rd_data[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[10]",
-                        "net": "phy_rd_data[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[11]",
-                        "net": "phy_rd_data[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[12]",
-                        "net": "phy_rd_data[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[13]",
-                        "net": "phy_rd_data[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[14]",
-                        "net": "phy_rd_data[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe5[15]",
-                        "net": "phy_rd_data[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe6",
-                        "net": "apb_pwrite",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe7",
-                        "net": "apb_pslverr",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe8[0]",
+                        "name": "la0_probe1[0]",
                         "net": "phy_md_addr[0]",
                         "path": [
                             "apb1",
@@ -847,7 +222,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe8[1]",
+                        "name": "la0_probe1[1]",
                         "net": "phy_md_addr[1]",
                         "path": [
                             "apb1",
@@ -855,7 +230,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe8[2]",
+                        "name": "la0_probe1[2]",
                         "net": "phy_md_addr[2]",
                         "path": [
                             "apb1",
@@ -863,7 +238,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe8[3]",
+                        "name": "la0_probe1[3]",
                         "net": "phy_md_addr[3]",
                         "path": [
                             "apb1",
@@ -871,7 +246,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe8[4]",
+                        "name": "la0_probe1[4]",
                         "net": "phy_md_addr[4]",
                         "path": [
                             "apb1",
@@ -879,15 +254,271 @@
                         ]
                     },
                     {
-                        "name": "la0_probe9",
-                        "net": "apb_pready",
+                        "name": "la0_probe2[0]",
+                        "net": "apb_prdata[0]",
                         "path": [
                             "apb1",
                             "mdio"
                         ]
                     },
                     {
-                        "name": "la0_probe10[0]",
+                        "name": "la0_probe2[1]",
+                        "net": "apb_prdata[1]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[2]",
+                        "net": "apb_prdata[2]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[3]",
+                        "net": "apb_prdata[3]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[4]",
+                        "net": "apb_prdata[4]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[5]",
+                        "net": "apb_prdata[5]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[6]",
+                        "net": "apb_prdata[6]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[7]",
+                        "net": "apb_prdata[7]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[8]",
+                        "net": "apb_prdata[8]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[9]",
+                        "net": "apb_prdata[9]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[10]",
+                        "net": "apb_prdata[10]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[11]",
+                        "net": "apb_prdata[11]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[12]",
+                        "net": "apb_prdata[12]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[13]",
+                        "net": "apb_prdata[13]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[14]",
+                        "net": "apb_prdata[14]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[15]",
+                        "net": "apb_prdata[15]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[16]",
+                        "net": "apb_prdata[16]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[17]",
+                        "net": "apb_prdata[17]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[18]",
+                        "net": "apb_prdata[18]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[19]",
+                        "net": "apb_prdata[19]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[20]",
+                        "net": "apb_prdata[20]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[21]",
+                        "net": "apb_prdata[21]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[22]",
+                        "net": "apb_prdata[22]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[23]",
+                        "net": "apb_prdata[23]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[24]",
+                        "net": "apb_prdata[24]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[25]",
+                        "net": "apb_prdata[25]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[26]",
+                        "net": "apb_prdata[26]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[27]",
+                        "net": "apb_prdata[27]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[28]",
+                        "net": "apb_prdata[28]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[29]",
+                        "net": "apb_prdata[29]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[30]",
+                        "net": "apb_prdata[30]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2[31]",
+                        "net": "apb_prdata[31]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe3",
+                        "net": "apb_pwrite",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe4[0]",
                         "net": "apb_paddr[0]",
                         "path": [
                             "apb1",
@@ -895,7 +526,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[1]",
+                        "name": "la0_probe4[1]",
                         "net": "apb_paddr[1]",
                         "path": [
                             "apb1",
@@ -903,7 +534,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[2]",
+                        "name": "la0_probe4[2]",
                         "net": "apb_paddr[2]",
                         "path": [
                             "apb1",
@@ -911,7 +542,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[3]",
+                        "name": "la0_probe4[3]",
                         "net": "apb_paddr[3]",
                         "path": [
                             "apb1",
@@ -919,7 +550,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[4]",
+                        "name": "la0_probe4[4]",
                         "net": "apb_paddr[4]",
                         "path": [
                             "apb1",
@@ -927,7 +558,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[5]",
+                        "name": "la0_probe4[5]",
                         "net": "apb_paddr[5]",
                         "path": [
                             "apb1",
@@ -935,7 +566,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[6]",
+                        "name": "la0_probe4[6]",
                         "net": "apb_paddr[6]",
                         "path": [
                             "apb1",
@@ -943,7 +574,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[7]",
+                        "name": "la0_probe4[7]",
                         "net": "apb_paddr[7]",
                         "path": [
                             "apb1",
@@ -951,7 +582,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[8]",
+                        "name": "la0_probe4[8]",
                         "net": "apb_paddr[8]",
                         "path": [
                             "apb1",
@@ -959,7 +590,7 @@
                         ]
                     },
                     {
-                        "name": "la0_probe10[9]",
+                        "name": "la0_probe4[9]",
                         "net": "apb_paddr[9]",
                         "path": [
                             "apb1",
@@ -967,8 +598,328 @@
                         ]
                     },
                     {
-                        "name": "la0_probe11",
+                        "name": "la0_probe5",
+                        "net": "apb_pready",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6",
+                        "net": "apb_penable",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[0]",
+                        "net": "phy_rd_data[0]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[1]",
+                        "net": "phy_rd_data[1]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[2]",
+                        "net": "phy_rd_data[2]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[3]",
+                        "net": "phy_rd_data[3]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[4]",
+                        "net": "phy_rd_data[4]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[5]",
+                        "net": "phy_rd_data[5]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[6]",
+                        "net": "phy_rd_data[6]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[7]",
+                        "net": "phy_rd_data[7]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[8]",
+                        "net": "phy_rd_data[8]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[9]",
+                        "net": "phy_rd_data[9]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[10]",
+                        "net": "phy_rd_data[10]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[11]",
+                        "net": "phy_rd_data[11]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[12]",
+                        "net": "phy_rd_data[12]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[13]",
+                        "net": "phy_rd_data[13]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[14]",
+                        "net": "phy_rd_data[14]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[15]",
+                        "net": "phy_rd_data[15]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8",
+                        "net": "phy_reg_wr",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[0]",
+                        "net": "phy_wr_data[0]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[1]",
+                        "net": "phy_wr_data[1]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[2]",
+                        "net": "phy_wr_data[2]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[3]",
+                        "net": "phy_wr_data[3]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[4]",
+                        "net": "phy_wr_data[4]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[5]",
+                        "net": "phy_wr_data[5]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[6]",
+                        "net": "phy_wr_data[6]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[7]",
+                        "net": "phy_wr_data[7]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[8]",
+                        "net": "phy_wr_data[8]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[9]",
+                        "net": "phy_wr_data[9]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[10]",
+                        "net": "phy_wr_data[10]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[11]",
+                        "net": "phy_wr_data[11]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[12]",
+                        "net": "phy_wr_data[12]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[13]",
+                        "net": "phy_wr_data[13]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[14]",
+                        "net": "phy_wr_data[14]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9[15]",
+                        "net": "phy_wr_data[15]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10",
                         "net": "apb_psel",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[0]",
+                        "net": "phy_reg_addr[0]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[1]",
+                        "net": "phy_reg_addr[1]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[2]",
+                        "net": "phy_reg_addr[2]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[3]",
+                        "net": "phy_reg_addr[3]",
+                        "path": [
+                            "apb1",
+                            "mdio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[4]",
+                        "net": "phy_reg_addr[4]",
                         "path": [
                             "apb1",
                             "mdio"
@@ -977,294 +928,6 @@
                     {
                         "name": "la0_probe12",
                         "net": "phy_reg_rd",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe13",
-                        "net": "phy_reg_wr",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[0]",
-                        "net": "apb_prdata[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[1]",
-                        "net": "apb_prdata[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[2]",
-                        "net": "apb_prdata[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[3]",
-                        "net": "apb_prdata[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[4]",
-                        "net": "apb_prdata[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[5]",
-                        "net": "apb_prdata[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[6]",
-                        "net": "apb_prdata[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[7]",
-                        "net": "apb_prdata[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[8]",
-                        "net": "apb_prdata[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[9]",
-                        "net": "apb_prdata[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[10]",
-                        "net": "apb_prdata[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[11]",
-                        "net": "apb_prdata[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[12]",
-                        "net": "apb_prdata[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[13]",
-                        "net": "apb_prdata[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[14]",
-                        "net": "apb_prdata[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[15]",
-                        "net": "apb_prdata[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[16]",
-                        "net": "apb_prdata[16]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[17]",
-                        "net": "apb_prdata[17]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[18]",
-                        "net": "apb_prdata[18]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[19]",
-                        "net": "apb_prdata[19]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[20]",
-                        "net": "apb_prdata[20]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[21]",
-                        "net": "apb_prdata[21]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[22]",
-                        "net": "apb_prdata[22]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[23]",
-                        "net": "apb_prdata[23]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[24]",
-                        "net": "apb_prdata[24]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[25]",
-                        "net": "apb_prdata[25]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[26]",
-                        "net": "apb_prdata[26]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[27]",
-                        "net": "apb_prdata[27]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[28]",
-                        "net": "apb_prdata[28]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[29]",
-                        "net": "apb_prdata[29]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[30]",
-                        "net": "apb_prdata[30]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe14[31]",
-                        "net": "apb_prdata[31]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe15",
-                        "net": "apb_penable",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe16",
-                        "net": "mdio_rx_data",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe17",
-                        "net": "mdio_busy",
                         "path": [
                             "apb1",
                             "mdio"
@@ -1286,94 +949,7 @@
             "capture_control": false,
             "selected_nets": [
                 {
-                    "name": "apb_pwdata",
-                    "width": 32,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 31,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "phy_wr_data",
-                    "width": 16,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 15,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "apb_pstrb",
-                    "width": 4,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 3,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "phy_reg_addr",
-                    "width": 5,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 4,
-                    "net_idx_right": 0
-                },
-                {
                     "name": "mdc",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "phy_rd_data",
-                    "width": 16,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 15,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "apb_pwrite",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "apb_pslverr",
                     "width": 1,
                     "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
@@ -1397,7 +973,20 @@
                     "net_idx_right": 0
                 },
                 {
-                    "name": "apb_pready",
+                    "name": "apb_prdata",
+                    "width": 32,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb1",
+                        "mdio"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_pwrite",
                     "width": 1,
                     "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
@@ -1421,7 +1010,7 @@
                     "net_idx_right": 0
                 },
                 {
-                    "name": "apb_psel",
+                    "name": "apb_pready",
                     "width": 1,
                     "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
@@ -1430,41 +1019,6 @@
                         "apb1",
                         "mdio"
                     ]
-                },
-                {
-                    "name": "phy_reg_rd",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "phy_reg_wr",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "apb_prdata",
-                    "width": 32,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 31,
-                    "net_idx_right": 0
                 },
                 {
                     "name": "apb_penable",
@@ -1478,7 +1032,20 @@
                     ]
                 },
                 {
-                    "name": "mdio_rx_data",
+                    "name": "phy_rd_data",
+                    "width": 16,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb1",
+                        "mdio"
+                    ],
+                    "net_idx_left": 15,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "phy_reg_wr",
                     "width": 1,
                     "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
@@ -1489,7 +1056,44 @@
                     ]
                 },
                 {
-                    "name": "mdio_busy",
+                    "name": "phy_wr_data",
+                    "width": 16,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb1",
+                        "mdio"
+                    ],
+                    "net_idx_left": 15,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_psel",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb1",
+                        "mdio"
+                    ]
+                },
+                {
+                    "name": "phy_reg_addr",
+                    "width": 5,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb1",
+                        "mdio"
+                    ],
+                    "net_idx_left": 4,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "phy_reg_rd",
                     "width": 1,
                     "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
