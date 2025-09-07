@@ -49,7 +49,7 @@ add_subdirectory("${PROJECT_ROOT}/common-embedded-platform" "${CMAKE_BINARY_DIR}
 add_subdirectory("${PROJECT_ROOT}/embedded-cli" "${CMAKE_BINARY_DIR}/embedded-cli")
 add_subdirectory("${PROJECT_ROOT}/embedded-utils" "${CMAKE_BINARY_DIR}/embedded-utils")
 add_subdirectory("${PROJECT_ROOT}/microkvs" "${CMAKE_BINARY_DIR}/microkvs")
-#add_subdirectory("${PROJECT_ROOT}/staticnet" "${CMAKE_BINARY_DIR}/staticnet")
+add_subdirectory("${PROJECT_ROOT}/staticnet" "${CMAKE_BINARY_DIR}/staticnet")
 add_subdirectory("${PROJECT_ROOT}/stm32-cpp" "${CMAKE_BINARY_DIR}/stm32-cpp")
 
 ########################################################################################################################

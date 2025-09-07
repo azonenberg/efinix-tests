@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efxpt:design_db name="stm32-test" device_def="T20F256" version="2025.1.110.4.9" db_version="20252006" last_change_date="Sun Sep  7 00:35:36 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
+<efxpt:design_db name="stm32-test" device_def="T20F256" version="2025.1.110.4.9" db_version="20252006" last_change_date="Sun Sep  7 06:40:16 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
     <efxpt:device_info>
         <efxpt:iobank_info>
             <efxpt:iobank name="1A" iostd="3.3 V LVTTL / LVCMOS"/>
@@ -18,6 +18,18 @@
         </efxpt:ctrl_info>
     </efxpt:device_info>
     <efxpt:gpio_info device_def="T20F256">
+        <efxpt:gpio name="apb1/mdio/mdio_obuf/buffers[0].iobuf" gpio_def="GPIOL_18" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_PIN" value="apb1/mdio/mdio_obuf/buffers[0].iobuf~O"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+                <efxpt:netlist_parameter name="OE_PIN" value="apb1/mdio/mdio_obuf/buffers[0].iobuf~OE"/>
+                <efxpt:netlist_parameter name="OUT_PIN" value="apb1/mdio/mdio_obuf/buffers[0].iobuf~I"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="apb1/mdio/mdio_obuf/buffers[0].iobuf~O" name_ddio_lo="" conn_type="normal" is_register="false" clock_name="" is_clock_inverted="false" pull_option="weak pullup" is_schmitt_trigger="false" ddio_type="none"/>
+            <efxpt:output_config name="apb1/mdio/mdio_obuf/buffers[0].iobuf~I" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+            <efxpt:output_enable_config name="apb1/mdio/mdio_obuf/buffers[0].iobuf~OE" is_register="false" clock_name="" is_clock_inverted="false"/>
+        </efxpt:gpio>
         <efxpt:gpio name="bridge/ad_iobuf/buffers[0].iobuf" gpio_def="GPIOL_73" mode="inout" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
             <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
                 <efxpt:netlist_parameter name="IN_PIN" value="bridge/ad_iobuf/buffers[0].iobuf~O"/>
@@ -217,6 +229,20 @@
                 <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
             </efxpt:netlist_config>
             <efxpt:input_config name="clk_50mhz" name_ddio_lo="" conn_type="gclk" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="eth_mdc" gpio_def="GPIOL_35" mode="output" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="eth_mdc"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="eth_mdc" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="eth_rst_n" gpio_def="GPIOL_16" mode="output" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="OUT_PIN" value="eth_rst_n"/>
+                <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:output_config name="eth_rst_n" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
         </efxpt:gpio>
         <efxpt:gpio name="flash_cs_n" gpio_def="GPIOL_00" mode="output" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
             <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">

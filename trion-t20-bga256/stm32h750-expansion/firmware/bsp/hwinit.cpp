@@ -51,31 +51,12 @@ volatile APB_GPIO FPGA_GPIOA __attribute__((section(".fgpioa")));
 volatile APB_DeviceInfo_Generic FDEVINFO __attribute__((section(".fdevinfo")));
 volatile APB_SPIHostInterface FSPI1 __attribute__((section(".fspi1")));
 
-/*
 volatile APB_MDIO FMDIO __attribute__((section(".fmdio")));
-volatile APB_XADC FXADC __attribute__((section(".fxadc")));
-volatile APB_Curve25519 FCURVE25519 __attribute__((section(".fcurve25519")));
-volatile APB_SerialLED FRGBLED __attribute__((section(".frgbled")));
+
+//volatile APB_Curve25519 FCURVE25519 __attribute__((section(".fcurve25519")));
 
 volatile APB_EthernetTxBuffer_10G FETHTX __attribute__((section(".fethtx")));
 volatile APB_EthernetRxBuffer FETHRX __attribute__((section(".fethrx")));
-
-volatile APB_IOMuxConfig F1V2_MUXCFG __attribute__((section(".f1v2_muxcfg")));
-volatile APB_GPIO F1V2_GPIO __attribute__((section(".f1v2_gpio")));
-volatile APB_SPIHostInterface F1V2_SPI __attribute__((section(".f1v2_spi")));
-
-volatile APB_IOMuxConfig F1V8_MUXCFG __attribute__((section(".f1v8_muxcfg")));
-volatile APB_GPIO F1V8_GPIO __attribute__((section(".f1v8_gpio")));
-volatile APB_SPIHostInterface F1V8_SPI  __attribute__((section(".f1v8_spi")));
-
-volatile APB_IOMuxConfig F2V5_MUXCFG __attribute__((section(".f2v5_muxcfg")));
-volatile APB_GPIO F2V5_GPIO __attribute__((section(".f2v5_gpio")));
-volatile APB_SPIHostInterface F2V5_SPI  __attribute__((section(".f2v5_spi")));
-
-volatile APB_IOMuxConfig F3V3_MUXCFG __attribute__((section(".f3v3_muxcfg")));
-volatile APB_GPIO F3V3_GPIO __attribute__((section(".f3v3_gpio")));
-volatile APB_SPIHostInterface F3V3_SPI  __attribute__((section(".f3v3_spi")));
-*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Common peripherals used by application and bootloader
@@ -104,14 +85,14 @@ GPIOPin g_leds[4] =
  */
 APB_GPIOPin g_fpgaLEDs[8] =
 {
-	APB_GPIOPin(&FPGA_GPIOA, 0, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 1, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 2, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 3, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 4, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 5, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 6, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 7, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED)
+	APB_GPIOPin(&FPGA_GPIOA, 8, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 9, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 10, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 11, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 12, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 13, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 14, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 15, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED)
 };
 
 /**
@@ -200,8 +181,8 @@ void BSP_Init()
 
 	InitI2C();
 	InitMacEEPROM();
-	/*
 	InitManagementPHY();
+	/*
 	InitIP();
 	InitITM();
 	*/
@@ -355,7 +336,7 @@ void InitFPGAFlash()
 	g_log("Initializing FPGA flash\n");
 	LogIndenter li(g_log);
 
-	static APB_SpiFlashInterface flash(&FSPI1, 8);	//62.5 MHz PCLK / 2 = 31.25 MHz SCK
+	static APB_SpiFlashInterface flash(&FSPI1, 2);	//62.5 MHz PCLK / 2 = 31.25 MHz SCK
 													//(even dividers required)
 	g_fpgaFlash = &flash;
 }

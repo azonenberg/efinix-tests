@@ -18,23 +18,22 @@ SECTIONS
 		. = ALIGN(1024);
 		KEEP (*(.fspi1))
 
-		/*
 		KEEP (*(.fmdio))
 		. = ALIGN(1024);
-		*/
 
 		/* Crypto accelerator */
 		/*. = ALIGN(1024);
 		KEEP (*(.fcurve25519))*/
 	} > FMC_APB1
 
-	/*
 	.sfr_fpga_apb2  (NOLOAD):
 	{
 		. = ALIGN(4096);
 		KEEP (*(.fethrx))
+
+		. = ALIGN(4096);
+		KEEP (*(.fethtx))
 	} > FMC_APB2
-	*/
 
 	/* 64-bit APB segment for fast data output */
 	/*

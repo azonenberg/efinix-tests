@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="stm32-test" description="" last_change="1757232819" sw_version="2025.1.110.4.9" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="stm32-test" description="" last_change="1757252523" sw_version="2025.1.110.4.9" last_run_state="pass" last_run_flow="bitstream" config_result_in_sync="true" design_ood="sync" place_ood="sync" route_ood="sync" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Trion"/>
         <efx:device name="T20F256"/>
@@ -18,6 +18,8 @@
         <efx:design_file name="../../../../antikernel-ipcores/device_abstraction/APB_DeviceInfo_Trion.sv" version="default" library="default"/>
         <efx:design_file name="../../../../antikernel-ipcores/interface/spi/SPIHostInterface.sv" version="default" library="default"/>
         <efx:design_file name="../../../../antikernel-ipcores/interface/spi/APB_SPIHostInterface.sv" version="default" library="default"/>
+        <efx:design_file name="../../../../antikernel-ipcores/interface/ethernet/EthernetMDIOTransceiver.sv" version="default" library="default"/>
+        <efx:design_file name="../../../../antikernel-ipcores/interface/ethernet/APB_MDIO.sv" version="default" library="default"/>
         <efx:top_vhdl_arch name=""/>
     </efx:design_info>
     <efx:constraint_info>

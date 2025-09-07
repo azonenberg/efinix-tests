@@ -52,7 +52,12 @@ module top(
 	input wire			flash_miso,
 
 	//GPIO LEDs (inverted)
-	output wire[7:0]	led_n
+	output wire[7:0]	led_n,
+
+	//Ethernet
+	output wire			eth_rst_n,
+	inout wire			eth_mdio,
+	output wire			eth_mdc
 );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -163,7 +168,11 @@ module top(
 		.flash_mosi(flash_mosi),
 		.flash_miso(flash_miso),
 
-		.led(led_int)
+		.led(led_int),
+
+		.eth_rst_n(eth_rst_n),
+		.eth_mdio(eth_mdio),
+		.eth_mdc(eth_mdc)
 	);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -27,7 +27,7 @@ target_link_libraries(bootloader
 	embedded-cli
 	embedded-utils
 	microkvs
-	#staticnet
+	staticnet
 	stm32-cpp
 	)
 

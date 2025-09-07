@@ -41,14 +41,19 @@ module Peripherals_APB1(
 	output wire			flash_cs_n,
 	output wire			flash_sck,
 	output wire			flash_mosi,
-	input wire			flash_miso
+	input wire			flash_miso,
+
+	//Ethernet
+	output wire			eth_rst_n,
+	inout wire			eth_mdio,
+	output wire			eth_mdc
 );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Root interconnect bridge (c000_0000, 1 kB / 0x400 segments per peripheral)
 
 	//APB1 segment
-	localparam NUM_PERIPHERALS	= 3;
+	localparam NUM_PERIPHERALS	= 4;
 	localparam BLOCK_SIZE		= 32'h400;
 	localparam ADDR_WIDTH		= $clog2(BLOCK_SIZE);
 	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) apb1[NUM_PERIPHERALS-1:0]();
@@ -75,14 +80,19 @@ module Peripherals_APB1(
 	// LED GPIO (c000_0400)
 
 	wire[31:0]	gpio_out;
+	wire[31:0]	gpio_in;
 	APB_GPIO gpioa (
 		.apb(apb1[1]),
 		.gpio_out(gpio_out),
-		.gpio_in(gpio_out),	//loop back for readback
+		.gpio_in(gpio_in),	//loop back for readback
 		.gpio_tris()
 	);
 
-	assign led = gpio_out[7:0];
+	//for now echo everything since everything is only an output
+	assign gpio_in = gpio_out;
+
+	assign led 			= gpio_out[15:8];
+	assign eth_rst_n	= gpio_out[4];		//InitManagementPHY expects it here
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SPI controller for boot flash (c000_0800)
@@ -94,6 +104,17 @@ module Peripherals_APB1(
 		.spi_mosi(flash_mosi),
 		.spi_miso(flash_miso),
 		.spi_cs_n(flash_cs_n)
+	);
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// MDIO controller for Ethernet PHY (c000_0c00)
+
+	APB_MDIO #(
+		.CLK_DIV(32)		//MDIO clock divide by 16, 62.5 MHz / 32 = 1.95 MHz
+	) mdio (
+		.apb(apb1[3]),
+		.mdio(eth_mdio),
+		.mdc(eth_mdc)
 	);
 
 endmodule
