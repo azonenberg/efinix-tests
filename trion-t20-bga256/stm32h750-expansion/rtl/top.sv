@@ -178,7 +178,21 @@ module top(
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// APB2 (0xc001_0000 - c001_ffff) eventually
 
+	//tieoffs
+	assign rootAPB[1].prdata = 0;
+	assign rootAPB[1].pslverr = 0;
+	assign rootAPB[1].pready = 1;
+	assign rootAPB[1].pruser = 0;
+	assign rootAPB[1].pbuser = 0;
+
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// TODO: whatever lives on apb64
+
+	//tieoffs
+	assign fmc_apb64.prdata = 0;
+	assign fmc_apb64.pslverr = 0;
+	assign fmc_apb64.pready = 1;
+	assign fmc_apb64.pruser = 0;
+	assign fmc_apb64.pbuser = 0;
 
 endmodule

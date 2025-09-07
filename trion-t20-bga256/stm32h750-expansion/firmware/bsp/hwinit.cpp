@@ -321,7 +321,7 @@ void InitFMC()
 	InitFMCForFPGA();
 
 	//Wait a little while for FPGA PLL to lock etc before we start talking to it
-	g_logTimer.Sleep(250);
+	g_logTimer.Sleep(500);
 }
 
 void InitI2C()
