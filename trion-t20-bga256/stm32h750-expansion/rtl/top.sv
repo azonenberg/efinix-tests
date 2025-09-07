@@ -181,7 +181,7 @@ module top(
 	//tieoffs
 	assign rootAPB[1].prdata = 0;
 	assign rootAPB[1].pslverr = 0;
-	assign rootAPB[1].pready = 1;
+	assign rootAPB[1].pready = rootAPB[1].penable;
 	assign rootAPB[1].pruser = 0;
 	assign rootAPB[1].pbuser = 0;
 
@@ -191,7 +191,7 @@ module top(
 	//tieoffs
 	assign fmc_apb64.prdata = 0;
 	assign fmc_apb64.pslverr = 0;
-	assign fmc_apb64.pready = 1;
+	assign fmc_apb64.pready = fmc_apb64.penable;
 	assign fmc_apb64.pruser = 0;
 	assign fmc_apb64.pbuser = 0;
 
