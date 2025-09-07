@@ -3,7 +3,7 @@
         {
             "name": "la0",
             "type": "la",
-            "uuid": "d3befbfa7c8b407aa07cf63546a81430",
+            "uuid": "b5262b83b1de47f692a9cf9cb5cc3f9f",
             "trigin_en": false,
             "trigout_en": false,
             "auto_inserted": true,
@@ -84,6 +84,11 @@
                 {
                     "name": "fmc_ne1",
                     "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "bridge/fmc_nbl",
+                    "width": 2,
                     "probe_type": 1
                 }
             ]
@@ -871,6 +876,20 @@
                         "name": "la0_probe14",
                         "net": "fmc_ne1",
                         "path": []
+                    },
+                    {
+                        "name": "la0_probe15[0]",
+                        "net": "fmc_nbl[0]",
+                        "path": [
+                            "bridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[1]",
+                        "net": "fmc_nbl[1]",
+                        "path": [
+                            "bridge"
+                        ]
                     }
                 ]
             }
@@ -1020,6 +1039,18 @@
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": []
+                },
+                {
+                    "name": "fmc_nbl",
+                    "width": 2,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "bridge"
+                    ],
+                    "net_idx_left": 1,
+                    "net_idx_right": 0
                 }
             ],
             "top_module": "top",

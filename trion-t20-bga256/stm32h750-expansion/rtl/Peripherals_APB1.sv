@@ -35,14 +35,20 @@ module Peripherals_APB1(
 	APB.completer		apb,
 
 	//GPIO LEDs
-	output wire[7:0]	led
+	output wire[7:0]	led,
+
+	//Boot flash
+	output wire			flash_cs_n,
+	output wire			flash_sck,
+	output wire			flash_mosi,
+	input wire			flash_miso
 );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Root interconnect bridge (c000_0000, 1 kB / 0x400 segments per peripheral)
 
 	//APB1 segment
-	localparam NUM_PERIPHERALS	= 2;
+	localparam NUM_PERIPHERALS	= 3;
 	localparam BLOCK_SIZE		= 32'h400;
 	localparam ADDR_WIDTH		= $clog2(BLOCK_SIZE);
 	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) apb1[NUM_PERIPHERALS-1:0]();
@@ -69,7 +75,7 @@ module Peripherals_APB1(
 	// LED GPIO (c000_0400)
 
 	wire[31:0]	gpio_out;
-	APB_GPIO gpio(
+	APB_GPIO gpioa (
 		.apb(apb1[1]),
 		.gpio_out(gpio_out),
 		.gpio_in(gpio_out),	//loop back for readback
@@ -77,5 +83,17 @@ module Peripherals_APB1(
 	);
 
 	assign led = gpio_out[7:0];
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// SPI controller for boot flash (c000_0800)
+
+	APB_SPIHostInterface spi1(
+		.apb(apb1[2]),
+
+		.spi_sck(flash_sck),
+		.spi_mosi(flash_mosi),
+		.spi_miso(flash_miso),
+		.spi_cs_n(flash_cs_n)
+	);
 
 endmodule

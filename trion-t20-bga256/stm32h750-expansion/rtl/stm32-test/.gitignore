@@ -3,3 +3,4 @@ outflow
 *.vcd
 *.log*
 *.lock
+*.pre_import.xml

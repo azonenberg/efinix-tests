@@ -53,6 +53,7 @@
 #include <tcpip/SSHKeyManager.h>
 
 #include <embedded-utils/LogSink.h>
+#include <embedded-utils/APB_SpiFlashInterface.h>
 
 #include <bootloader/BootloaderAPI.h>
 
@@ -67,6 +68,7 @@ void InitI2C();
 //Common hardware interface stuff (mostly Ethernet related)
 extern GPIOPin g_leds[4];
 extern APB_GPIOPin g_fpgaLEDs[8];
+extern APB_SpiFlashInterface* g_fpgaFlash;
 /*
 //extern bool g_usingDHCP;
 //extern ManagementDHCPClient* g_dhcpClient;
@@ -84,9 +86,11 @@ bool CheckForFPGAEvents();
 void RegisterProtocolHandlers(IPv4Protocol& ipv4);
 
 extern volatile APB_XADC FXADC;
-extern volatile APB_GPIO FPGA_GPIOA;
 extern volatile APB_Curve25519 FCURVE25519;
 extern volatile APB_SerialLED FRGBLED;
 */
+
+extern volatile APB_GPIO FPGA_GPIOA;
+extern volatile APB_SPIHostInterface FSPI1;
 
 #endif

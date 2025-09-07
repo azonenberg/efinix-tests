@@ -49,9 +49,10 @@
 
 volatile APB_GPIO FPGA_GPIOA __attribute__((section(".fgpioa")));
 volatile APB_DeviceInfo_Generic FDEVINFO __attribute__((section(".fdevinfo")));
+volatile APB_SPIHostInterface FSPI1 __attribute__((section(".fspi1")));
+
 /*
 volatile APB_MDIO FMDIO __attribute__((section(".fmdio")));
-volatile APB_SPIHostInterface FSPI1 __attribute__((section(".fspi1")));
 volatile APB_XADC FXADC __attribute__((section(".fxadc")));
 volatile APB_Curve25519 FCURVE25519 __attribute__((section(".fcurve25519")));
 volatile APB_SerialLED FRGBLED __attribute__((section(".frgbled")));
@@ -147,12 +148,17 @@ volatile BootloaderBBRAM* g_bbram = reinterpret_cast<volatile BootloaderBBRAM*>(
 SSHKeyManager g_keyMgr;
 */
 
-/*
+/**
+	@brief Microkvs and firmware storage for the MCU
+
 	Initialize the QSPI block assuming 128 Mbits to start
 	QSPI kernel clock defaults to HCLK3 which is 237.5 MHz
 	Divide by 4 gives 59.375 MHz which should be fairly safe to start
  */
 QuadSPI_SpiFlashInterface g_flashQspi(&_QUADSPI, 128 * 1024 * 1024, 4);
+
+///@brief Boot flash on the FPGA
+APB_SpiFlashInterface* g_fpgaFlash = nullptr;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Do other initialization
@@ -349,11 +355,7 @@ void InitFPGAFlash()
 	g_log("Initializing FPGA flash\n");
 	LogIndenter li(g_log);
 
-	g_log("not yet implemented\n");
-
-	/*
-	static APB_SpiFlashInterface flash(&FSPI1, 2);	//100 MHz PCLK = 25 MHz SCK
-													//(even dividers required, /2 fails for reasons TBD)
+	static APB_SpiFlashInterface flash(&FSPI1, 8);	//62.5 MHz PCLK / 2 = 31.25 MHz SCK
+													//(even dividers required)
 	g_fpgaFlash = &flash;
-	*/
 }

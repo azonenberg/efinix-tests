@@ -1,6 +1,6 @@
-[dumpfile] "/tmp/tmpf1tyu3hz/la0tmp_continous.vcd"
-[dumpfile_mtime] "Thu Sep 04 14:09:00 2025"
-[dumpfile_size] 1499
+[dumpfile] "/tmp/tmped45_by1/la0tmp_continous.vcd"
+[dumpfile_mtime] "Thu Sep 04 16:34:59 2025"
+[dumpfile_size] 1556
 [savefile] "/ceph/fast/home/azonenberg/code/efinix-tests/trion-t20-bga256/stm32h750-expansion/rtl/stm32-test/la0_waveform.gtkw"
 [timestart] 0
 [size] 1000 600
@@ -24,3 +24,4 @@ top.fmc_apb.paddr[24:0]
 top.fmc_apb.psel
 top.bridge/adbus_in[15:0]
 top.fmc_ne1
+top.bridge/fmc_nbl[1:0]

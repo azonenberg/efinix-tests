@@ -15,6 +15,9 @@ SECTIONS
 		. = ALIGN(1024);
 		KEEP (*(.fgpioa))
 
+		. = ALIGN(1024);
+		KEEP (*(.fspi1))
+
 		/*
 		KEEP (*(.fmdio))
 		. = ALIGN(1024);

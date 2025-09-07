@@ -30,6 +30,8 @@
 ***********************************************************************************************************************/
 
 module top(
+
+	//50 MHz board clock
 	input wire			clk_50mhz,
 
 	//FMC interface
@@ -43,6 +45,13 @@ module top(
 	input wire[6:0]		fmc_a_hi,
 	input wire			fmc_ne1,
 
+	//SPI flash for FPGA boot image
+	output wire			flash_cs_n,
+	output wire			flash_sck,
+	output wire			flash_mosi,
+	input wire			flash_miso,
+
+	//GPIO LEDs (inverted)
 	output wire[7:0]	led_n
 );
 
@@ -148,6 +157,12 @@ module top(
 
 	Peripherals_APB1 apb1(
 		.apb(rootAPB[0]),
+
+		.flash_cs_n(flash_cs_n),
+		.flash_sck(flash_sck),
+		.flash_mosi(flash_mosi),
+		.flash_miso(flash_miso),
+
 		.led(led_int)
 	);
 
