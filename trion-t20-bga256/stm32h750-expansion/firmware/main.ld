@@ -9,16 +9,16 @@ SECTIONS
 {
 	.sfr_fpga_apb1  (NOLOAD):
 	{
-		/*. = ALIGN(1024);
-		KEEP (*(.fgpioa))
 		. = ALIGN(1024);
 		KEEP (*(.fdevinfo))
+
 		. = ALIGN(1024);
+		KEEP (*(.fgpioa))
+
+		/*
 		KEEP (*(.fmdio))
 		. = ALIGN(1024);
-		KEEP (*(.fspi1))
-		. = ALIGN(1024);
-		KEEP (*(.fxadc))
+		*/
 
 		/* Crypto accelerator */
 		/*. = ALIGN(1024);

@@ -22,7 +22,7 @@ target_link_libraries(bootloader
 	common-embedded-platform-boilerplate-h750
 	common-embedded-platform-core
 	common-embedded-platform-fpga
-	#common-embedded-platform-tcpip
+	common-embedded-platform-tcpip
 	#common-embedded-platform-services
 	embedded-cli
 	embedded-utils

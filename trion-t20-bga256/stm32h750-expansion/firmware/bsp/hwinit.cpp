@@ -47,9 +47,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Memory mapped SFRs on the FPGA
 
-/*
 volatile APB_GPIO FPGA_GPIOA __attribute__((section(".fgpioa")));
-volatile APB_DeviceInfo_7series FDEVINFO __attribute__((section(".fdevinfo")));
+volatile APB_DeviceInfo_Generic FDEVINFO __attribute__((section(".fdevinfo")));
+/*
 volatile APB_MDIO FMDIO __attribute__((section(".fmdio")));
 volatile APB_SPIHostInterface FSPI1 __attribute__((section(".fspi1")));
 volatile APB_XADC FXADC __attribute__((section(".fxadc")));
@@ -101,23 +101,25 @@ GPIOPin g_leds[4] =
 /**
 	@brief FPGA GPIO LEDs
  */
-/*
-APB_GPIOPin g_fpgaLEDs[4] =
+APB_GPIOPin g_fpgaLEDs[8] =
 {
 	APB_GPIOPin(&FPGA_GPIOA, 0, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
 	APB_GPIOPin(&FPGA_GPIOA, 1, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
 	APB_GPIOPin(&FPGA_GPIOA, 2, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
-	APB_GPIOPin(&FPGA_GPIOA, 3, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED)
+	APB_GPIOPin(&FPGA_GPIOA, 3, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 4, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 5, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 6, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED),
+	APB_GPIOPin(&FPGA_GPIOA, 7, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED)
 };
-*/
 
 /**
 	@brief MAC address I2C EEPROM
-	Default kernel clock for I2C2 is pclk2 (68.75 MHz for our current config)
-	Prescale by 16 to get 4.29 MHz
-	Divide by 40 after that to get 107 kHz
+	Default kernel clock for I2C1 is pclk1 (118.75 MHz for our current config)
+	Prescale by 16 to get 29.68 MHz
+	Divide by 128 after that to get 231 kHz
 */
-//I2C g_macI2C(&I2C2, 16, 40);
+I2C g_macI2C(&I2C1, 16, 128);
 
 /*
 ///@brief The single supported SSH username
@@ -167,10 +169,10 @@ void BSP_Init()
 		2,		//PLL2
 		25,		//input is 25 MHz from the HSE
 		2,		//25/2 = 12.5 MHz at the PFD
-		24,		//12.5 * 24 = 300 MHz at the VCO
+		20,		//12.5 * 20 = 250 MHz at the VCO
 		32,		//div P (not used for now)
 		32,		//div Q (not used for now)
-		2,		//div R (150 MHz FMC kernel clock = 75 MHz FMC clock)
+		2,		//div R (125 MHz FMC kernel clock = 62.5 MHz FMC clock)
 		RCCHelper::CLOCK_SOURCE_HSE
 	);
 
@@ -180,33 +182,24 @@ void BSP_Init()
 	InitQSPI();
 	DoInitKVS();
 	InitFMC();
-	/*
 	InitFPGA();
 	InitFPGAFlash();
-	*/
-	/*
+
+	//Initialize the LEDs (for now turn them all on)
+	for(auto& led : g_fpgaLEDs)
+	{
+		led.DeferredInit();
+		led = 1;
+	}
+
 	InitI2C();
 	InitMacEEPROM();
+	/*
 	InitManagementPHY();
 	InitIP();
 	InitITM();
-
-	App_Init();
 	*/
-
-	g_log("waiting for fmc...\n");
-	g_logTimer.Sleep(20000);
-	g_logTimer.Sleep(20000);
-	g_log("writing to fmc...\n");
-	volatile uint32_t* p = reinterpret_cast<volatile uint32_t*>(0xc0000000);
-	*p = 0x55;
-	uint32_t t =*p;
-	uint32_t t2 = p[0x404];
-	g_log("done, readback = %08x, %08x\n", t, t2);
-
-	while(1)
-	{
-	}
+	App_Init();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -340,28 +333,25 @@ void InitFMC()
 
 	InitFMCForFPGA();
 
-	/*
-	//Initialize the LEDs
-	for(auto& led : g_fpgaLEDs)
-		led.DeferredInit();
-	*/
+	//Wait a little while for FPGA PLL to lock etc before we start talking to it
+	g_logTimer.Sleep(250);
 }
 
 void InitI2C()
 {
-	/*
 	g_log("Initializing I2C interfaces\n");
-	static GPIOPin mac_i2c_scl(&GPIOH, 4, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 4, true);
-	static GPIOPin mac_i2c_sda(&GPIOH, 5, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 4, true);
-	*/
+	static GPIOPin mac_i2c_scl(&GPIOB, 8, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 4, true);
+	static GPIOPin mac_i2c_sda(&GPIOB, 9, GPIOPin::MODE_PERIPHERAL, GPIOPin::SLEW_SLOW, 4, true);
 }
 
 void InitFPGAFlash()
 {
-	/*
 	g_log("Initializing FPGA flash\n");
 	LogIndenter li(g_log);
 
+	g_log("not yet implemented\n");
+
+	/*
 	static APB_SpiFlashInterface flash(&FSPI1, 2);	//100 MHz PCLK = 25 MHz SCK
 													//(even dividers required, /2 fails for reasons TBD)
 	g_fpgaFlash = &flash;

@@ -32,14 +32,9 @@
 #include "BootloaderTCPProtocol.h"
 #include "BootloaderCLISessionContext.h"*/
 
-/*****************************
-	ALL OF THIS CONFIG IS WRONG
- *******************************/
-
-//Application region of flash runs from the end of the bootloader (0x8020000)
-//to the start of the KVS (0x080c0000), so 640 kB
+//Application region of flash starts at the beginning of external SPI flash
 //Firmware version string is put right after vector table by linker script at a constant address
-uint32_t* const g_appVector  = reinterpret_cast<uint32_t*>(0x8020000);
+uint32_t* const g_appVector  = reinterpret_cast<uint32_t*>(0x9000'0000);
 
 //Offset of the version string (size of the vector table plus 32 byte alignment)
 const uint32_t g_appVersionOffset = 0x2e0;
@@ -71,6 +66,8 @@ const uint32_t g_appImageSize = g_flashSectorCount * g_flashSectorSize;
 
 void Bootloader_Init()
 {
+	g_log("Bootloader init\n");
+
 	/*
 	DoInitKVS();
 	InitQSPI();

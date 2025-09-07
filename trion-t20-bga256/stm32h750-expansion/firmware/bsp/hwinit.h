@@ -39,6 +39,7 @@
 #include <peripheral/UART.h>
 
 #include <APB_Curve25519.h>
+#include <APB_DeviceInfo_Generic.h>
 #include <APB_GPIO.h>
 #include <APB_SPIHostInterface.h>
 #include <APB_EthernetRxBuffer.h>
@@ -60,14 +61,13 @@
 
 void App_Init();
 void InitFMC();
-/*
 void InitFPGAFlash();
 void InitI2C();
 
 //Common hardware interface stuff (mostly Ethernet related)
 extern GPIOPin g_leds[4];
-extern APB_GPIOPin g_fpgaLEDs[4];
-
+extern APB_GPIOPin g_fpgaLEDs[8];
+/*
 //extern bool g_usingDHCP;
 //extern ManagementDHCPClient* g_dhcpClient;
 
