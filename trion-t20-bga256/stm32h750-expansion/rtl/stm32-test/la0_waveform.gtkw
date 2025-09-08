@@ -1,0 +1,26 @@
+[dumpfile] "/tmp/tmpbd0xxxj1/la0tmp_continous.vcd"
+[dumpfile_mtime] "Mon Sep 08 05:36:35 2025"
+[dumpfile_size] 1258
+[savefile] "/ceph/fast/home/azonenberg/code/efinix-tests/trion-t20-bga256/stm32h750-expansion/rtl/stm32-test/la0_waveform.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*0.000000 c 16 1040 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[signals_width] 126
+[sst_expanded] 1
+@22
+top.apb1/mdio/apb_paddr[9:0]
+top.apb1/mdio/apb_penable
+top.apb1/mdio/apb_prdata[31:0]
+top.apb1/mdio/apb_pready
+top.apb1/mdio/apb_psel
+top.apb1/mdio/apb_pwdata[31:0]
+top.apb1/mdio/apb_pwrite
+top.apb1/mdio/mdio_rx_data
+top.fmc_apb.pslverr
+top.fmc_apb.penable
+top.fmc_apb.pwdata[31:0]
+top.fmc_apb.prdata[31:0]
+top.fmc_apb.pwrite
+top.fmc_apb.paddr[26:0]
+top.fmc_apb.psel
