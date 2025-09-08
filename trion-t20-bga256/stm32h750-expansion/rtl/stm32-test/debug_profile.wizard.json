@@ -3,86 +3,61 @@
         {
             "name": "la0",
             "type": "la",
-            "uuid": "32e49e5b340f4164bfe3042a32b1603a",
+            "uuid": "d3f6d3e4856840d081c331e6ee4ff2f1",
             "trigin_en": false,
             "trigout_en": false,
             "auto_inserted": true,
             "capture_control": false,
-            "data_depth": 1024,
+            "data_depth": 2048,
             "input_pipeline": 1,
             "probes": [
                 {
-                    "name": "apb1/mdio/apb_paddr",
-                    "width": 10,
+                    "name": "gmii_rx_bus.data",
+                    "width": 8,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_penable",
+                    "name": "gmii_rx_bus.en",
                     "width": 1,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_prdata",
+                    "name": "gmii_rx_bus.er",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "gmii_rx_bus.dvalid",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "eth_axi_rx.tlast",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "eth_axi_rx.tvalid",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "eth_axi_rx.tdata",
                     "width": 32,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_pready",
-                    "width": 1,
+                    "name": "eth_axi_rx.tkeep",
+                    "width": 4,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_psel",
-                    "width": 1,
+                    "name": "eth_axi_rx.tstrb",
+                    "width": 4,
                     "probe_type": 1
                 },
                 {
-                    "name": "apb1/mdio/apb_pwdata",
-                    "width": 32,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/apb_pwrite",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "apb1/mdio/mdio_rx_data",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.pslverr",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.penable",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.pwdata",
-                    "width": 32,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.prdata",
-                    "width": 32,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.pwrite",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.paddr",
-                    "width": 27,
-                    "probe_type": 1
-                },
-                {
-                    "name": "fmc_apb.psel",
+                    "name": "eth_axi_rx.tuser",
                     "width": 1,
                     "probe_type": 1
                 }
@@ -212,1114 +187,277 @@
                     },
                     {
                         "name": "la0_clk",
-                        "net": "pclk",
+                        "net": "gmii_rxc",
                         "path": []
                     },
                     {
                         "name": "la0_probe0[0]",
-                        "net": "apb_paddr[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[0]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[1]",
-                        "net": "apb_paddr[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[1]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[2]",
-                        "net": "apb_paddr[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[2]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[3]",
-                        "net": "apb_paddr[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[3]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[4]",
-                        "net": "apb_paddr[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[4]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[5]",
-                        "net": "apb_paddr[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[5]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[6]",
-                        "net": "apb_paddr[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[6]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe0[7]",
-                        "net": "apb_paddr[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[8]",
-                        "net": "apb_paddr[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe0[9]",
-                        "net": "apb_paddr[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.data[7]",
+                        "path": []
                     },
                     {
                         "name": "la0_probe1",
-                        "net": "apb_penable",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.en",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe2[0]",
-                        "net": "apb_prdata[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[1]",
-                        "net": "apb_prdata[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[2]",
-                        "net": "apb_prdata[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[3]",
-                        "net": "apb_prdata[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[4]",
-                        "net": "apb_prdata[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[5]",
-                        "net": "apb_prdata[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[6]",
-                        "net": "apb_prdata[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[7]",
-                        "net": "apb_prdata[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[8]",
-                        "net": "apb_prdata[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[9]",
-                        "net": "apb_prdata[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[10]",
-                        "net": "apb_prdata[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[11]",
-                        "net": "apb_prdata[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[12]",
-                        "net": "apb_prdata[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[13]",
-                        "net": "apb_prdata[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[14]",
-                        "net": "apb_prdata[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[15]",
-                        "net": "apb_prdata[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[16]",
-                        "net": "apb_prdata[16]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[17]",
-                        "net": "apb_prdata[17]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[18]",
-                        "net": "apb_prdata[18]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[19]",
-                        "net": "apb_prdata[19]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[20]",
-                        "net": "apb_prdata[20]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[21]",
-                        "net": "apb_prdata[21]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[22]",
-                        "net": "apb_prdata[22]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[23]",
-                        "net": "apb_prdata[23]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[24]",
-                        "net": "apb_prdata[24]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[25]",
-                        "net": "apb_prdata[25]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[26]",
-                        "net": "apb_prdata[26]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[27]",
-                        "net": "apb_prdata[27]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[28]",
-                        "net": "apb_prdata[28]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[29]",
-                        "net": "apb_prdata[29]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[30]",
-                        "net": "apb_prdata[30]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
-                    },
-                    {
-                        "name": "la0_probe2[31]",
-                        "net": "apb_prdata[31]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe2",
+                        "net": "gmii_rx_bus.er",
+                        "path": []
                     },
                     {
                         "name": "la0_probe3",
-                        "net": "apb_pready",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "gmii_rx_bus.dvalid",
+                        "path": []
                     },
                     {
                         "name": "la0_probe4",
-                        "net": "apb_psel",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "net": "eth_axi_rx.tlast",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[0]",
-                        "net": "apb_pwdata[0]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe5",
+                        "net": "eth_axi_rx.tvalid",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[1]",
-                        "net": "apb_pwdata[1]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[0]",
+                        "net": "eth_axi_rx.tdata[0]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[2]",
-                        "net": "apb_pwdata[2]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[1]",
+                        "net": "eth_axi_rx.tdata[1]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[3]",
-                        "net": "apb_pwdata[3]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[2]",
+                        "net": "eth_axi_rx.tdata[2]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[4]",
-                        "net": "apb_pwdata[4]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[3]",
+                        "net": "eth_axi_rx.tdata[3]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[5]",
-                        "net": "apb_pwdata[5]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[4]",
+                        "net": "eth_axi_rx.tdata[4]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[6]",
-                        "net": "apb_pwdata[6]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[5]",
+                        "net": "eth_axi_rx.tdata[5]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[7]",
-                        "net": "apb_pwdata[7]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[6]",
+                        "net": "eth_axi_rx.tdata[6]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[8]",
-                        "net": "apb_pwdata[8]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[7]",
+                        "net": "eth_axi_rx.tdata[7]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[9]",
-                        "net": "apb_pwdata[9]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[8]",
+                        "net": "eth_axi_rx.tdata[8]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[10]",
-                        "net": "apb_pwdata[10]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[9]",
+                        "net": "eth_axi_rx.tdata[9]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[11]",
-                        "net": "apb_pwdata[11]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[10]",
+                        "net": "eth_axi_rx.tdata[10]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[12]",
-                        "net": "apb_pwdata[12]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[11]",
+                        "net": "eth_axi_rx.tdata[11]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[13]",
-                        "net": "apb_pwdata[13]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[12]",
+                        "net": "eth_axi_rx.tdata[12]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[14]",
-                        "net": "apb_pwdata[14]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[13]",
+                        "net": "eth_axi_rx.tdata[13]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[15]",
-                        "net": "apb_pwdata[15]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[14]",
+                        "net": "eth_axi_rx.tdata[14]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[16]",
-                        "net": "apb_pwdata[16]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[15]",
+                        "net": "eth_axi_rx.tdata[15]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[17]",
-                        "net": "apb_pwdata[17]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[16]",
+                        "net": "eth_axi_rx.tdata[16]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[18]",
-                        "net": "apb_pwdata[18]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[17]",
+                        "net": "eth_axi_rx.tdata[17]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[19]",
-                        "net": "apb_pwdata[19]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[18]",
+                        "net": "eth_axi_rx.tdata[18]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[20]",
-                        "net": "apb_pwdata[20]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[19]",
+                        "net": "eth_axi_rx.tdata[19]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[21]",
-                        "net": "apb_pwdata[21]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[20]",
+                        "net": "eth_axi_rx.tdata[20]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[22]",
-                        "net": "apb_pwdata[22]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[21]",
+                        "net": "eth_axi_rx.tdata[21]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[23]",
-                        "net": "apb_pwdata[23]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[22]",
+                        "net": "eth_axi_rx.tdata[22]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[24]",
-                        "net": "apb_pwdata[24]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[23]",
+                        "net": "eth_axi_rx.tdata[23]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[25]",
-                        "net": "apb_pwdata[25]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[24]",
+                        "net": "eth_axi_rx.tdata[24]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[26]",
-                        "net": "apb_pwdata[26]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[25]",
+                        "net": "eth_axi_rx.tdata[25]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[27]",
-                        "net": "apb_pwdata[27]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[26]",
+                        "net": "eth_axi_rx.tdata[26]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[28]",
-                        "net": "apb_pwdata[28]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[27]",
+                        "net": "eth_axi_rx.tdata[27]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[29]",
-                        "net": "apb_pwdata[29]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[28]",
+                        "net": "eth_axi_rx.tdata[28]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[30]",
-                        "net": "apb_pwdata[30]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[29]",
+                        "net": "eth_axi_rx.tdata[29]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe5[31]",
-                        "net": "apb_pwdata[31]",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[30]",
+                        "net": "eth_axi_rx.tdata[30]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe6",
-                        "net": "apb_pwrite",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe6[31]",
+                        "net": "eth_axi_rx.tdata[31]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe7",
-                        "net": "mdio_rx_data",
-                        "path": [
-                            "apb1",
-                            "mdio"
-                        ]
+                        "name": "la0_probe7[0]",
+                        "net": "eth_axi_rx.tkeep[0]",
+                        "path": []
                     },
                     {
-                        "name": "la0_probe8",
-                        "net": "fmc_apb.pslverr",
+                        "name": "la0_probe7[1]",
+                        "net": "eth_axi_rx.tkeep[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe7[2]",
+                        "net": "eth_axi_rx.tkeep[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe7[3]",
+                        "net": "eth_axi_rx.tkeep[3]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe8[0]",
+                        "net": "eth_axi_rx.tstrb[0]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe8[1]",
+                        "net": "eth_axi_rx.tstrb[1]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe8[2]",
+                        "net": "eth_axi_rx.tstrb[2]",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe8[3]",
+                        "net": "eth_axi_rx.tstrb[3]",
                         "path": []
                     },
                     {
                         "name": "la0_probe9",
-                        "net": "fmc_apb.penable",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[0]",
-                        "net": "fmc_apb.pwdata[0]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[1]",
-                        "net": "fmc_apb.pwdata[1]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[2]",
-                        "net": "fmc_apb.pwdata[2]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[3]",
-                        "net": "fmc_apb.pwdata[3]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[4]",
-                        "net": "fmc_apb.pwdata[4]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[5]",
-                        "net": "fmc_apb.pwdata[5]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[6]",
-                        "net": "fmc_apb.pwdata[6]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[7]",
-                        "net": "fmc_apb.pwdata[7]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[8]",
-                        "net": "fmc_apb.pwdata[8]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[9]",
-                        "net": "fmc_apb.pwdata[9]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[10]",
-                        "net": "fmc_apb.pwdata[10]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[11]",
-                        "net": "fmc_apb.pwdata[11]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[12]",
-                        "net": "fmc_apb.pwdata[12]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[13]",
-                        "net": "fmc_apb.pwdata[13]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[14]",
-                        "net": "fmc_apb.pwdata[14]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[15]",
-                        "net": "fmc_apb.pwdata[15]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[16]",
-                        "net": "fmc_apb.pwdata[16]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[17]",
-                        "net": "fmc_apb.pwdata[17]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[18]",
-                        "net": "fmc_apb.pwdata[18]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[19]",
-                        "net": "fmc_apb.pwdata[19]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[20]",
-                        "net": "fmc_apb.pwdata[20]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[21]",
-                        "net": "fmc_apb.pwdata[21]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[22]",
-                        "net": "fmc_apb.pwdata[22]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[23]",
-                        "net": "fmc_apb.pwdata[23]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[24]",
-                        "net": "fmc_apb.pwdata[24]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[25]",
-                        "net": "fmc_apb.pwdata[25]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[26]",
-                        "net": "fmc_apb.pwdata[26]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[27]",
-                        "net": "fmc_apb.pwdata[27]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[28]",
-                        "net": "fmc_apb.pwdata[28]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[29]",
-                        "net": "fmc_apb.pwdata[29]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[30]",
-                        "net": "fmc_apb.pwdata[30]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe10[31]",
-                        "net": "fmc_apb.pwdata[31]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[0]",
-                        "net": "fmc_apb.prdata[0]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[1]",
-                        "net": "fmc_apb.prdata[1]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[2]",
-                        "net": "fmc_apb.prdata[2]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[3]",
-                        "net": "fmc_apb.prdata[3]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[4]",
-                        "net": "fmc_apb.prdata[4]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[5]",
-                        "net": "fmc_apb.prdata[5]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[6]",
-                        "net": "fmc_apb.prdata[6]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[7]",
-                        "net": "fmc_apb.prdata[7]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[8]",
-                        "net": "fmc_apb.prdata[8]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[9]",
-                        "net": "fmc_apb.prdata[9]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[10]",
-                        "net": "fmc_apb.prdata[10]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[11]",
-                        "net": "fmc_apb.prdata[11]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[12]",
-                        "net": "fmc_apb.prdata[12]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[13]",
-                        "net": "fmc_apb.prdata[13]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[14]",
-                        "net": "fmc_apb.prdata[14]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[15]",
-                        "net": "fmc_apb.prdata[15]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[16]",
-                        "net": "fmc_apb.prdata[16]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[17]",
-                        "net": "fmc_apb.prdata[17]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[18]",
-                        "net": "fmc_apb.prdata[18]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[19]",
-                        "net": "fmc_apb.prdata[19]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[20]",
-                        "net": "fmc_apb.prdata[20]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[21]",
-                        "net": "fmc_apb.prdata[21]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[22]",
-                        "net": "fmc_apb.prdata[22]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[23]",
-                        "net": "fmc_apb.prdata[23]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[24]",
-                        "net": "fmc_apb.prdata[24]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[25]",
-                        "net": "fmc_apb.prdata[25]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[26]",
-                        "net": "fmc_apb.prdata[26]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[27]",
-                        "net": "fmc_apb.prdata[27]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[28]",
-                        "net": "fmc_apb.prdata[28]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[29]",
-                        "net": "fmc_apb.prdata[29]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[30]",
-                        "net": "fmc_apb.prdata[30]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe11[31]",
-                        "net": "fmc_apb.prdata[31]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe12",
-                        "net": "fmc_apb.pwrite",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[0]",
-                        "net": "fmc_apb.paddr[0]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[1]",
-                        "net": "fmc_apb.paddr[1]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[2]",
-                        "net": "fmc_apb.paddr[2]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[3]",
-                        "net": "fmc_apb.paddr[3]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[4]",
-                        "net": "fmc_apb.paddr[4]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[5]",
-                        "net": "fmc_apb.paddr[5]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[6]",
-                        "net": "fmc_apb.paddr[6]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[7]",
-                        "net": "fmc_apb.paddr[7]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[8]",
-                        "net": "fmc_apb.paddr[8]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[9]",
-                        "net": "fmc_apb.paddr[9]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[10]",
-                        "net": "fmc_apb.paddr[10]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[11]",
-                        "net": "fmc_apb.paddr[11]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[12]",
-                        "net": "fmc_apb.paddr[12]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[13]",
-                        "net": "fmc_apb.paddr[13]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[14]",
-                        "net": "fmc_apb.paddr[14]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[15]",
-                        "net": "fmc_apb.paddr[15]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[16]",
-                        "net": "fmc_apb.paddr[16]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[17]",
-                        "net": "fmc_apb.paddr[17]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[18]",
-                        "net": "fmc_apb.paddr[18]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[19]",
-                        "net": "fmc_apb.paddr[19]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[20]",
-                        "net": "fmc_apb.paddr[20]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[21]",
-                        "net": "fmc_apb.paddr[21]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[22]",
-                        "net": "fmc_apb.paddr[22]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[23]",
-                        "net": "fmc_apb.paddr[23]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[24]",
-                        "net": "fmc_apb.paddr[24]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[25]",
-                        "net": "fmc_apb.paddr[25]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe13[26]",
-                        "net": "fmc_apb.paddr[26]",
-                        "path": []
-                    },
-                    {
-                        "name": "la0_probe14",
-                        "net": "fmc_apb.psel",
+                        "net": "eth_axi_rx.tuser[0]",
                         "path": []
                     }
                 ]
@@ -1334,123 +472,63 @@
     ],
     "session": {
         "wizard": {
-            "data_depth": 1024,
+            "data_depth": 2048,
             "capture_control": false,
             "selected_nets": [
                 {
-                    "name": "apb_paddr",
-                    "width": 10,
-                    "clk_domain": "pclk",
+                    "name": "gmii_rx_bus.data",
+                    "width": 8,
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 9,
+                    "path": [],
+                    "net_idx_left": 7,
                     "net_idx_right": 0
                 },
                 {
-                    "name": "apb_penable",
+                    "name": "gmii_rx_bus.en",
                     "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "apb_prdata",
-                    "width": 32,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 31,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "apb_pready",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "apb_psel",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "apb_pwdata",
-                    "width": 32,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ],
-                    "net_idx_left": 31,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "apb_pwrite",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "mdio_rx_data",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [
-                        "apb1",
-                        "mdio"
-                    ]
-                },
-                {
-                    "name": "fmc_apb.pslverr",
-                    "width": 1,
-                    "clk_domain": "pclk",
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": []
                 },
                 {
-                    "name": "fmc_apb.penable",
+                    "name": "gmii_rx_bus.er",
                     "width": 1,
-                    "clk_domain": "pclk",
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": []
                 },
                 {
-                    "name": "fmc_apb.pwdata",
+                    "name": "gmii_rx_bus.dvalid",
+                    "width": 1,
+                    "clk_domain": "gmii_rxc",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": []
+                },
+                {
+                    "name": "eth_axi_rx.tlast",
+                    "width": 1,
+                    "clk_domain": "gmii_rxc",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": []
+                },
+                {
+                    "name": "eth_axi_rx.tvalid",
+                    "width": 1,
+                    "clk_domain": "gmii_rxc",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": []
+                },
+                {
+                    "name": "eth_axi_rx.tdata",
                     "width": 32,
-                    "clk_domain": "pclk",
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": [],
@@ -1458,40 +536,34 @@
                     "net_idx_right": 0
                 },
                 {
-                    "name": "fmc_apb.prdata",
-                    "width": 32,
-                    "clk_domain": "pclk",
+                    "name": "eth_axi_rx.tkeep",
+                    "width": 4,
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": [],
-                    "net_idx_left": 31,
+                    "net_idx_left": 3,
                     "net_idx_right": 0
                 },
                 {
-                    "name": "fmc_apb.pwrite",
-                    "width": 1,
-                    "clk_domain": "pclk",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": []
-                },
-                {
-                    "name": "fmc_apb.paddr",
-                    "width": 27,
-                    "clk_domain": "pclk",
+                    "name": "eth_axi_rx.tstrb",
+                    "width": 4,
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
                     "path": [],
-                    "net_idx_left": 26,
+                    "net_idx_left": 3,
                     "net_idx_right": 0
                 },
                 {
-                    "name": "fmc_apb.psel",
+                    "name": "eth_axi_rx.tuser",
                     "width": 1,
-                    "clk_domain": "pclk",
+                    "clk_domain": "gmii_rxc",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
-                    "path": []
+                    "path": [],
+                    "net_idx_left": 0,
+                    "net_idx_right": 0
                 }
             ],
             "top_module": "top",

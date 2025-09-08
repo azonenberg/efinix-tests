@@ -29,6 +29,8 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
+import EthernetBus::*;
+
 module top(
 
 	//50 MHz board clock
@@ -57,7 +59,11 @@ module top(
 	//Ethernet
 	output wire			eth_rst_n,
 	inout wire			eth_mdio,
-	output wire			eth_mdc
+	output wire			eth_mdc,
+
+	input wire			rgmii_rxc,
+	input wire[3:0]		rgmii_rxd,
+	input wire			rgmii_rx_ctl
 );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -82,7 +88,7 @@ module top(
 	end
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// PLL
+	// Main system clock PLL
 
 	wire	pll_lock;
 	wire	clk_fb;
@@ -121,6 +127,49 @@ module top(
 		.din(pll_lock),
 		.clk_out(pclk),
 		.dout(pll_lock_sync));
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// RGMII interface
+
+	wire		gmii_rxc;
+	GmiiBus		gmii_rx_bus;
+
+	wire		link_up;
+	lspeed_t	link_speed;
+
+	RGMIIToGMIIBridge_EFX rgmii(
+		.rgmii_rxc(rgmii_rxc),
+		.rgmii_rxd(rgmii_rxd),
+		.rgmii_rx_ctl(rgmii_rx_ctl),
+
+		.gmii_rxc(gmii_rxc),
+		.gmii_rx_bus(gmii_rx_bus),
+
+		.link_up(link_up),
+		.link_speed(link_speed),
+		.false_carrier()
+	);
+
+	//TODO: worry about TX later
+	AXIStream #(.DATA_WIDTH(32), .ID_WIDTH(0), .DEST_WIDTH(0), .USER_WIDTH(1)) eth_axi_tx();
+	AXIStream #(.DATA_WIDTH(32), .ID_WIDTH(0), .DEST_WIDTH(0), .USER_WIDTH(1)) eth_axi_rx();
+
+	AXIS_TriSpeedEthernetMAC mac(
+		.gmii_rx_clk(gmii_rxc),
+		.gmii_rx_bus(gmii_rx_bus),
+
+		/*
+		.gmii_tx_clk(clk_125mhz),
+		.gmii_tx_bus(gmii_tx_bus),
+		*/
+
+		.link_up(link_up),
+		.link_speed(link_speed),
+
+		.axi_rx(eth_axi_rx),
+		.axi_tx(eth_axi_tx)
+		);
+	assign eth_axi_rx.tready = 1;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// APB bridge
@@ -168,7 +217,7 @@ module top(
 		.flash_mosi(flash_mosi),
 		.flash_miso(flash_miso),
 
-		.led(led_int),
+		.led(/*led_int*/),
 
 		.eth_rst_n(eth_rst_n),
 		.eth_mdio(eth_mdio),

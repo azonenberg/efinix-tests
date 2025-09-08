@@ -182,6 +182,11 @@ void BSP_Init()
 	InitI2C();
 	InitMacEEPROM();
 	InitManagementPHY();
+
+	//TODO: tune this to see what gives the best results and how wide our data window is
+	g_log("Poking clock skew register\n");
+	g_phyMdio->WriteExtendedRegister(2, REG_KSZ9031_MMD2_CLKSKEW, 0x3ff0);
+
 	/*
 	InitIP();
 	InitITM();

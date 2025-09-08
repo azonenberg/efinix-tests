@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efxpt:design_db name="stm32-test" device_def="T20F256" version="2025.1.110.4.9" db_version="20252006" last_change_date="Sun Sep  7 08:32:05 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
+<efxpt:design_db name="stm32-test" device_def="T20F256" version="2025.1.110.4.9" db_version="20252006" last_change_date="Mon Sep  8 03:17:34 2025" xmlns:efxpt="http://www.efinixinc.com/peri_design_db" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/peri_design_db peri_design_db.xsd ">
     <efxpt:device_info>
         <efxpt:iobank_info>
             <efxpt:iobank name="1A" iostd="3.3 V LVTTL / LVCMOS"/>
@@ -433,6 +433,64 @@
                 <efxpt:netlist_parameter name="OUT_REG" value="BYPASS"/>
             </efxpt:netlist_config>
             <efxpt:output_config name="led_n[7]" name_ddio_lo="" register_option="none" clock_name="" is_clock_inverted="false" is_slew_rate="false" tied_option="none" ddio_type="none" drive_strength="1"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii/rgmii_rxd_iddr2/buffers[0].ddr_ibuf" gpio_def="GPIOL_33" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_CLK_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_HI_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[0].ddr_ibuf~O_HI"/>
+                <efxpt:netlist_parameter name="IN_LO_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[0].ddr_ibuf~O_LO"/>
+                <efxpt:netlist_parameter name="IN_REG" value="DDIO_RESYNC"/>
+                <efxpt:netlist_parameter name="IS_INCLK_INVERTED" value="0"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii/rgmii_rxd_iddr2/buffers[0].ddr_ibuf~O_HI" name_ddio_lo="rgmii/rgmii_rxd_iddr2/buffers[0].ddr_ibuf~O_LO" conn_type="normal" is_register="true" clock_name="rgmii_rxc" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="resync"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii/rgmii_rxd_iddr2/buffers[1].ddr_ibuf" gpio_def="GPIOL_21" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_CLK_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_HI_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[1].ddr_ibuf~O_HI"/>
+                <efxpt:netlist_parameter name="IN_LO_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[1].ddr_ibuf~O_LO"/>
+                <efxpt:netlist_parameter name="IN_REG" value="DDIO_RESYNC"/>
+                <efxpt:netlist_parameter name="IS_INCLK_INVERTED" value="0"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii/rgmii_rxd_iddr2/buffers[1].ddr_ibuf~O_HI" name_ddio_lo="rgmii/rgmii_rxd_iddr2/buffers[1].ddr_ibuf~O_LO" conn_type="normal" is_register="true" clock_name="rgmii_rxc" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="resync"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii/rgmii_rxd_iddr2/buffers[2].ddr_ibuf" gpio_def="GPIOL_32" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_CLK_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_HI_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[2].ddr_ibuf~O_HI"/>
+                <efxpt:netlist_parameter name="IN_LO_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[2].ddr_ibuf~O_LO"/>
+                <efxpt:netlist_parameter name="IN_REG" value="DDIO_RESYNC"/>
+                <efxpt:netlist_parameter name="IS_INCLK_INVERTED" value="0"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii/rgmii_rxd_iddr2/buffers[2].ddr_ibuf~O_HI" name_ddio_lo="rgmii/rgmii_rxd_iddr2/buffers[2].ddr_ibuf~O_LO" conn_type="normal" is_register="true" clock_name="rgmii_rxc" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="resync"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii/rgmii_rxd_iddr2/buffers[3].ddr_ibuf" gpio_def="GPIOL_22" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_CLK_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_HI_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[3].ddr_ibuf~O_HI"/>
+                <efxpt:netlist_parameter name="IN_LO_PIN" value="rgmii/rgmii_rxd_iddr2/buffers[3].ddr_ibuf~O_LO"/>
+                <efxpt:netlist_parameter name="IN_REG" value="DDIO_RESYNC"/>
+                <efxpt:netlist_parameter name="IS_INCLK_INVERTED" value="0"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii/rgmii_rxd_iddr2/buffers[3].ddr_ibuf~O_HI" name_ddio_lo="rgmii/rgmii_rxd_iddr2/buffers[3].ddr_ibuf~O_LO" conn_type="normal" is_register="true" clock_name="rgmii_rxc" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="resync"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii/rgmii_rxe_iddr2/buffers[0].ddr_ibuf" gpio_def="GPIOL_20" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="IN_CLK_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_HI_PIN" value="rgmii/rgmii_rxe_iddr2/buffers[0].ddr_ibuf~O_HI"/>
+                <efxpt:netlist_parameter name="IN_LO_PIN" value="rgmii/rgmii_rxe_iddr2/buffers[0].ddr_ibuf~O_LO"/>
+                <efxpt:netlist_parameter name="IN_REG" value="DDIO_RESYNC"/>
+                <efxpt:netlist_parameter name="IS_INCLK_INVERTED" value="0"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii/rgmii_rxe_iddr2/buffers[0].ddr_ibuf~O_HI" name_ddio_lo="rgmii/rgmii_rxe_iddr2/buffers[0].ddr_ibuf~O_LO" conn_type="normal" is_register="true" clock_name="rgmii_rxc" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="resync"/>
+        </efxpt:gpio>
+        <efxpt:gpio name="rgmii_rxc" gpio_def="GPIOL_30" mode="input" bus_name="" is_lvds_gpio="false" io_standard="3.3 V LVTTL / LVCMOS">
+            <efxpt:netlist_config netlist_checksum="stm32-test.peri.db">
+                <efxpt:netlist_parameter name="CONN_TYPE" value="GCLK"/>
+                <efxpt:netlist_parameter name="IN_PIN" value="rgmii_rxc"/>
+                <efxpt:netlist_parameter name="IN_REG" value="BYPASS"/>
+            </efxpt:netlist_config>
+            <efxpt:input_config name="rgmii_rxc" name_ddio_lo="" conn_type="gclk" is_register="false" clock_name="" is_clock_inverted="false" pull_option="none" is_schmitt_trigger="false" ddio_type="none"/>
         </efxpt:gpio>
         <efxpt:global_unused_config state="input with weak pullup"/>
         <efxpt:bus name="fmc_nbl" mode="input" msb="1" lsb="0"/>
