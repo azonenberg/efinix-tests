@@ -46,7 +46,10 @@ module Peripherals_APB1(
 	//Ethernet
 	output wire			eth_rst_n,
 	inout wire			eth_mdio,
-	output wire			eth_mdc
+	output wire			eth_mdc,
+
+	//IRQ from RX buffer to MCU
+	input wire			irq
 );
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,11 +91,12 @@ module Peripherals_APB1(
 		.gpio_tris()
 	);
 
-	//for now echo everything since everything is only an output
-	assign gpio_in = gpio_out;
+	//Readback
+	assign gpio_in[31:1]	= gpio_out[31:1];
+	assign gpio_in[0]		= irq;
 
-	assign led 			= gpio_out[15:8];
-	assign eth_rst_n	= gpio_out[4];		//InitManagementPHY expects it here
+	assign led 				= gpio_out[15:8];
+	assign eth_rst_n		= gpio_out[4];		//InitManagementPHY expects it here
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// SPI controller for boot flash (c000_0800)

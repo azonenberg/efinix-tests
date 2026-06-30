@@ -27,90 +27,29 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "bootloader.h"
-/*#include "BootloaderUDPProtocol.h"
-#include "BootloaderTCPProtocol.h"
-#include "BootloaderCLISessionContext.h"*/
+#ifndef FPGATask_h
+#define FPGATask_h
 
-//Application region of flash starts at the beginning of external SPI flash
-//Firmware version string is put right after vector table by linker script at a constant address
-uint32_t* const g_appVector  = reinterpret_cast<uint32_t*>(0x9000'0000);
+#include <core/Task.h>
 
-//Offset of the version string (size of the vector table plus 32 byte alignment)
-const uint32_t g_appVersionOffset = 0x2e0;
-
-///@brief Output stream for local serial console
-UARTOutputStream g_localConsoleOutputStream;
-/*
-///@brief Context data structure for local serial console
-BootloaderCLISessionContext g_localConsoleSessionContext;
-
-///@brief The SSH server
-BootloaderSSHTransportServer* g_sshd = nullptr;
-*/
-
-extern bool g_bootAppPending;
-extern uint32_t g_bootAppTimer;
-
-///@brief Number of sectors in the image
-const uint32_t g_flashSectorCount = 5;
-
-///@brief Size of a sector
-const uint32_t g_flashSectorSize = 128 * 1024;
-
-///@brief Size of the image
-const uint32_t g_appImageSize = g_flashSectorCount * g_flashSectorSize;
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Hooks called by bootloader code
-
-void Bootloader_Init()
+class FPGATask : public Task
 {
-	g_log("Bootloader init\n");
+public:
+	FPGATask()
+	{}
 
-	RTC::Unlock();
+	virtual void Iteration()
+	{
+		auto frame = g_ethIface.GetRxFrame();
+		if(frame != nullptr)
+		{
+			g_log("Got frame (%u bytes)\n", frame->Length());
+			g_ethProtocol->OnRxFrame(frame);
+		}
+	}
 
-	//Initialize the local console
-	//g_localConsoleOutputStream.Initialize(&g_cliUART);
-	//g_localConsoleSessionContext.Initialize(&g_localConsoleOutputStream, "localadmin");
-}
+protected:
+};
 
-void Bootloader_ClearRxBuffer()
-{
-}
+#endif
 
-void Bootloader_FinalCleanup()
-{
-	g_cliUART.Flush();
-}
-
-void __attribute__((noreturn)) BSP_MainLoop()
-{
-	Bootloader_MainLoop();
-}
-
-void RegisterProtocolHandlers(IPv4Protocol& ipv4)
-{
-	g_log("register handlers\n");
-
-	/*
-	static BootloaderTCPProtocol tcp(&ipv4);
-	static BootloaderUDPProtocol udp(&ipv4);
-	ipv4.UseTCP(&tcp);
-	ipv4.UseUDP(&udp);
-	g_dhcpClient = &udp.GetDHCP();
-	*/
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Run the firmware updater
-
-void __attribute__((noreturn)) Bootloader_FirmwareUpdateFlow()
-{
-	g_log("In DFU mode\n");
-
-	//Show the initial prompt
-	//g_localConsoleSessionContext.PrintPrompt();
-
-	DefaultMainLoop();
-}

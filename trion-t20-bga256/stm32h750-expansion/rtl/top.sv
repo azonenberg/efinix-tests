@@ -35,6 +35,7 @@ module top(
 
 	//50 MHz board clock
 	input wire			clk_50mhz,
+	input wire			clk_50mhz_pllin,
 
 	//FMC interface
 	input wire			fmc_clk,
@@ -91,7 +92,6 @@ module top(
 	// Main system clock PLL
 
 	wire	pll_lock;
-	wire	clk_fb;
 	wire	pclk;
 	EFX_PLL_V2 #(
 		.N(1),				//pre divide = 1, so xx MHz at the PFD (range 10 - 100)
@@ -129,10 +129,51 @@ module top(
 		.dout(pll_lock_sync));
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Second PLL to make RGMII TX clocks from 50 MHz board clock
+
+	wire	rgmii_pll_lock;
+	wire	clk_125mhz;
+	EFX_PLL_V2 #(
+		.N(1),				//pre divide = 1, so 50 MHz at the PFD (range 10 - 100)
+		.M(20),				//multiplier 20, so 1000 MHz at the VCO (range 500 - 1600 for internal FB, 500 - 3600 for other)
+		.O(2),				//post divider between VCO and all outputs
+							//(must be 2 or higher if multiple outputs active)
+		.CLKOUT0_DIV(4),	//125 MHz
+		.CLKOUT1_DIV(128),	//not used, slow to save power
+		.CLKOUT2_DIV(128),	//not used, slow to save power
+		.CLKOUT0_PHASE(0),
+		.CLKOUT1_PHASE(0),
+		.CLKOUT2_PHASE(0),
+		.FEEDBACK_CLK("INTERNAL"),
+		.FEEDBACK_MODE("INTERNAL"),
+		.REFCLK_FREQ(50)	//refclk frequency in MHz
+	) rgmii_pll (
+		.CLKIN({3'b0, clk_50mhz_pllin}),
+		.CLKSEL(2'b00),
+		.RSTN(pll_rst_n),
+		.FBK(1'b0),
+		.CLKOUT0(clk_125mhz),
+		.CLKOUT1(),
+		.CLKOUT2(),
+		.LOCKED(rgmii_pll_lock)
+	);
+
+	logic[31:0] count = 0;
+	always_ff @(posedge clk_125mhz) begin
+		count <= count + 1;
+	end
+
+	assign led_int[7] = rgmii_pll_lock;
+	assign led_int[6:0] = count[31 -: 7];
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// RGMII interface
 
 	wire		gmii_rxc;
 	GmiiBus		gmii_rx_bus;
+
+	GmiiBus		gmii_tx_bus;
+	//TODO: make this go somewhere
 
 	wire		link_up;
 	lspeed_t	link_speed;
@@ -158,10 +199,8 @@ module top(
 		.gmii_rx_clk(gmii_rxc),
 		.gmii_rx_bus(gmii_rx_bus),
 
-		/*
 		.gmii_tx_clk(clk_125mhz),
 		.gmii_tx_bus(gmii_tx_bus),
-		*/
 
 		.link_up(link_up),
 		.link_speed(link_speed),
@@ -169,7 +208,6 @@ module top(
 		.axi_rx(eth_axi_rx),
 		.axi_tx(eth_axi_tx)
 		);
-	assign eth_axi_rx.tready = 1;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// APB bridge
@@ -209,6 +247,8 @@ module top(
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// APB1 (0xc000_0000 - c000_ffff)
 
+	wire irq;
+
 	Peripherals_APB1 apb1(
 		.apb(rootAPB[0]),
 
@@ -221,18 +261,26 @@ module top(
 
 		.eth_rst_n(eth_rst_n),
 		.eth_mdio(eth_mdio),
-		.eth_mdc(eth_mdc)
+		.eth_mdc(eth_mdc),
+
+		.irq(irq)
 	);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	// APB2 (0xc001_0000 - c001_ffff) eventually
+	// APB2 (0xc001_0000 - c001_ffff)
 
-	//tieoffs
-	assign rootAPB[1].prdata = 0;
-	assign rootAPB[1].pslverr = 0;
-	assign rootAPB[1].pready = rootAPB[1].penable;
-	assign rootAPB[1].pruser = 0;
-	assign rootAPB[1].pbuser = 0;
+	Peripherals_APB2 apb2(
+		.clk_125mhz(clk_125mhz),
+
+		.apb(rootAPB[1]),
+
+		.link_up_phyclk(link_up),
+
+		.eth_axi_rx(eth_axi_rx),
+		.eth_axi_tx(eth_axi_tx),
+
+		.irq(irq)
+	);
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// TODO: whatever lives on apb64

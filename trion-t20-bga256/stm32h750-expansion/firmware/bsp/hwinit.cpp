@@ -34,9 +34,12 @@
  */
 #include <core/platform.h>
 #include "hwinit.h"
+#include "FPGATask.h"
 #include <peripheral/QuadSPI.h>
+#include <tcpip/IPAgingTask1Hz.h>
+#include <tcpip/IPAgingTask10Hz.h>
+#include <tcpip/PhyPollTask.h>
 /*
-#include <peripheral/FMC.h>
 #include <peripheral/DWT.h>
 #include <peripheral/ITM.h>
 #include <ctype.h>
@@ -95,6 +98,9 @@ APB_GPIOPin g_fpgaLEDs[8] =
 	APB_GPIOPin(&FPGA_GPIOA, 15, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED)
 };
 
+///@brief FPGA IRQ pin
+APB_GPIOPin g_fpgaIRQ(&FPGA_GPIOA, 0, APB_GPIOPin::MODE_OUTPUT, APB_GPIOPin::INIT_DEFERRED);
+
 /**
 	@brief MAC address I2C EEPROM
 	Default kernel clock for I2C1 is pclk1 (118.75 MHz for our current config)
@@ -119,9 +125,6 @@ const char* g_defaultSshUsername = "admin";
 ///@brief The DHCP client
 //ManagementDHCPClient* g_dhcpClient = nullptr;
 
-///@brief IRQ line to the FPGA
-APB_GPIOPin* g_ethIRQ = nullptr;
-
 ///@brief The battery-backed RAM used to store state across power cycles
 volatile BootloaderBBRAM* g_bbram = reinterpret_cast<volatile BootloaderBBRAM*>(&_RTC.BKP[0]);
 
@@ -142,10 +145,18 @@ QuadSPI_SpiFlashInterface g_flashQspi(&_QUADSPI, 128 * 1024 * 1024, 4);
 APB_SpiFlashInterface* g_fpgaFlash = nullptr;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Task tables
+
+etl::vector<Task*, MAX_TASKS>  g_tasks;
+etl::vector<TimerTask*, MAX_TIMER_TASKS>  g_timerTasks;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Do other initialization
 
 void InitITM();
 void InitQSPI();
+
+void BSP_InitTasks();
 
 void BSP_Init()
 {
@@ -172,12 +183,13 @@ void BSP_Init()
 	InitFPGA();
 	InitFPGAFlash();
 
-	//Initialize the LEDs (for now turn them all on)
+	//Initialize the LEDs and FPGA IRQ (for now turn them all on)
 	for(auto& led : g_fpgaLEDs)
 	{
 		led.DeferredInit();
 		led = 1;
 	}
+	g_fpgaIRQ.DeferredInit();
 
 	InitI2C();
 	InitMacEEPROM();
@@ -187,11 +199,31 @@ void BSP_Init()
 	g_log("Poking clock skew register\n");
 	g_phyMdio->WriteExtendedRegister(2, REG_KSZ9031_MMD2_CLKSKEW, 0x3ff0);
 
-	/*
 	InitIP();
-	InitITM();
-	*/
+	//InitITM();
+
+	//Standard tasks used by both bootloader and application
+	BSP_InitTasks();
+
 	App_Init();
+}
+
+void BSP_InitTasks()
+{
+	//Create tasks
+	static FPGATask fpgaTask;
+	static IPAgingTask1Hz agingTask1;
+	static IPAgingTask10Hz agingTask10;
+	static PhyPollTask phyTask;
+
+	g_tasks.push_back(&fpgaTask);
+	g_tasks.push_back(&agingTask1);
+	g_tasks.push_back(&agingTask10);
+	g_tasks.push_back(&phyTask);
+
+	g_timerTasks.push_back(&agingTask1);
+	g_timerTasks.push_back(&agingTask10);
+	g_timerTasks.push_back(&phyTask);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

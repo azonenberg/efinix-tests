@@ -3,61 +3,151 @@
         {
             "name": "la0",
             "type": "la",
-            "uuid": "d3f6d3e4856840d081c331e6ee4ff2f1",
+            "uuid": "1e5a76a7113d4aee8f582a474a54e98b",
             "trigin_en": false,
             "trigout_en": false,
             "auto_inserted": true,
             "capture_control": false,
-            "data_depth": 2048,
+            "data_depth": 1024,
             "input_pipeline": 1,
             "probes": [
                 {
-                    "name": "gmii_rx_bus.data",
-                    "width": 8,
-                    "probe_type": 1
-                },
-                {
-                    "name": "gmii_rx_bus.en",
+                    "name": "apb2/eth_apb_rx.preset_n",
                     "width": 1,
                     "probe_type": 1
                 },
                 {
-                    "name": "gmii_rx_bus.er",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "gmii_rx_bus.dvalid",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "eth_axi_rx.tlast",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "eth_axi_rx.tvalid",
-                    "width": 1,
-                    "probe_type": 1
-                },
-                {
-                    "name": "eth_axi_rx.tdata",
+                    "name": "apb2/eth_apb_rx.prdata",
                     "width": 32,
                     "probe_type": 1
                 },
                 {
-                    "name": "eth_axi_rx.tkeep",
+                    "name": "apb2/eth_apb_rx.pslverr",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.pready",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.psel",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.pwdata",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.penable",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.pstrb",
                     "width": 4,
                     "probe_type": 1
                 },
                 {
-                    "name": "eth_axi_rx.tstrb",
-                    "width": 4,
+                    "name": "apb2/eth_apb_rx.pwrite",
+                    "width": 1,
                     "probe_type": 1
                 },
                 {
-                    "name": "eth_axi_rx.tuser",
+                    "name": "apb2/eth_apb_rx.pprot",
+                    "width": 3,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_apb_rx.paddr",
+                    "width": 12,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/eth_link_up",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rx_frame_ready",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_wr_commit",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_wr_en",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_wr_size",
+                    "width": 13,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_packet_size",
+                    "width": 13,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_rd_data",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_rd_data",
+                    "width": 11,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_wr_data",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_rd_empty",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_rd_en",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_wr_drop",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_rd_size",
+                    "width": 13,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_rd_size",
+                    "width": 6,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxheader_wr_size",
+                    "width": 6,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_pop_packet",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "apb2/eth_rx_fifo/rxfifo_wr_en",
                     "width": 1,
                     "probe_type": 1
                 }
@@ -187,278 +277,1711 @@
                     },
                     {
                         "name": "la0_clk",
-                        "net": "gmii_rxc",
+                        "net": "pclk",
                         "path": []
                     },
                     {
-                        "name": "la0_probe0[0]",
-                        "net": "gmii_rx_bus.data[0]",
-                        "path": []
+                        "name": "la0_probe0",
+                        "net": "eth_apb_rx.preset_n",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[1]",
-                        "net": "gmii_rx_bus.data[1]",
-                        "path": []
+                        "name": "la0_probe1[0]",
+                        "net": "eth_apb_rx.prdata[0]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[2]",
-                        "net": "gmii_rx_bus.data[2]",
-                        "path": []
+                        "name": "la0_probe1[1]",
+                        "net": "eth_apb_rx.prdata[1]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[3]",
-                        "net": "gmii_rx_bus.data[3]",
-                        "path": []
+                        "name": "la0_probe1[2]",
+                        "net": "eth_apb_rx.prdata[2]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[4]",
-                        "net": "gmii_rx_bus.data[4]",
-                        "path": []
+                        "name": "la0_probe1[3]",
+                        "net": "eth_apb_rx.prdata[3]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[5]",
-                        "net": "gmii_rx_bus.data[5]",
-                        "path": []
+                        "name": "la0_probe1[4]",
+                        "net": "eth_apb_rx.prdata[4]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[6]",
-                        "net": "gmii_rx_bus.data[6]",
-                        "path": []
+                        "name": "la0_probe1[5]",
+                        "net": "eth_apb_rx.prdata[5]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe0[7]",
-                        "net": "gmii_rx_bus.data[7]",
-                        "path": []
+                        "name": "la0_probe1[6]",
+                        "net": "eth_apb_rx.prdata[6]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe1",
-                        "net": "gmii_rx_bus.en",
-                        "path": []
+                        "name": "la0_probe1[7]",
+                        "net": "eth_apb_rx.prdata[7]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[8]",
+                        "net": "eth_apb_rx.prdata[8]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[9]",
+                        "net": "eth_apb_rx.prdata[9]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[10]",
+                        "net": "eth_apb_rx.prdata[10]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[11]",
+                        "net": "eth_apb_rx.prdata[11]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[12]",
+                        "net": "eth_apb_rx.prdata[12]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[13]",
+                        "net": "eth_apb_rx.prdata[13]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[14]",
+                        "net": "eth_apb_rx.prdata[14]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[15]",
+                        "net": "eth_apb_rx.prdata[15]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[16]",
+                        "net": "eth_apb_rx.prdata[16]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[17]",
+                        "net": "eth_apb_rx.prdata[17]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[18]",
+                        "net": "eth_apb_rx.prdata[18]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[19]",
+                        "net": "eth_apb_rx.prdata[19]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[20]",
+                        "net": "eth_apb_rx.prdata[20]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[21]",
+                        "net": "eth_apb_rx.prdata[21]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[22]",
+                        "net": "eth_apb_rx.prdata[22]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[23]",
+                        "net": "eth_apb_rx.prdata[23]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[24]",
+                        "net": "eth_apb_rx.prdata[24]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[25]",
+                        "net": "eth_apb_rx.prdata[25]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[26]",
+                        "net": "eth_apb_rx.prdata[26]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[27]",
+                        "net": "eth_apb_rx.prdata[27]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[28]",
+                        "net": "eth_apb_rx.prdata[28]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[29]",
+                        "net": "eth_apb_rx.prdata[29]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[30]",
+                        "net": "eth_apb_rx.prdata[30]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[31]",
+                        "net": "eth_apb_rx.prdata[31]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe2",
-                        "net": "gmii_rx_bus.er",
-                        "path": []
+                        "net": "eth_apb_rx.pslverr",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe3",
-                        "net": "gmii_rx_bus.dvalid",
-                        "path": []
+                        "net": "eth_apb_rx.pready",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe4",
-                        "net": "eth_axi_rx.tlast",
-                        "path": []
+                        "net": "eth_apb_rx.psel",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe5",
-                        "net": "eth_axi_rx.tvalid",
-                        "path": []
+                        "name": "la0_probe5[0]",
+                        "net": "eth_apb_rx.pwdata[0]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[0]",
-                        "net": "eth_axi_rx.tdata[0]",
-                        "path": []
+                        "name": "la0_probe5[1]",
+                        "net": "eth_apb_rx.pwdata[1]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[1]",
-                        "net": "eth_axi_rx.tdata[1]",
-                        "path": []
+                        "name": "la0_probe5[2]",
+                        "net": "eth_apb_rx.pwdata[2]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[2]",
-                        "net": "eth_axi_rx.tdata[2]",
-                        "path": []
+                        "name": "la0_probe5[3]",
+                        "net": "eth_apb_rx.pwdata[3]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[3]",
-                        "net": "eth_axi_rx.tdata[3]",
-                        "path": []
+                        "name": "la0_probe5[4]",
+                        "net": "eth_apb_rx.pwdata[4]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[4]",
-                        "net": "eth_axi_rx.tdata[4]",
-                        "path": []
+                        "name": "la0_probe5[5]",
+                        "net": "eth_apb_rx.pwdata[5]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[5]",
-                        "net": "eth_axi_rx.tdata[5]",
-                        "path": []
+                        "name": "la0_probe5[6]",
+                        "net": "eth_apb_rx.pwdata[6]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[6]",
-                        "net": "eth_axi_rx.tdata[6]",
-                        "path": []
+                        "name": "la0_probe5[7]",
+                        "net": "eth_apb_rx.pwdata[7]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[7]",
-                        "net": "eth_axi_rx.tdata[7]",
-                        "path": []
+                        "name": "la0_probe5[8]",
+                        "net": "eth_apb_rx.pwdata[8]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[8]",
-                        "net": "eth_axi_rx.tdata[8]",
-                        "path": []
+                        "name": "la0_probe5[9]",
+                        "net": "eth_apb_rx.pwdata[9]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[9]",
-                        "net": "eth_axi_rx.tdata[9]",
-                        "path": []
+                        "name": "la0_probe5[10]",
+                        "net": "eth_apb_rx.pwdata[10]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[10]",
-                        "net": "eth_axi_rx.tdata[10]",
-                        "path": []
+                        "name": "la0_probe5[11]",
+                        "net": "eth_apb_rx.pwdata[11]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[11]",
-                        "net": "eth_axi_rx.tdata[11]",
-                        "path": []
+                        "name": "la0_probe5[12]",
+                        "net": "eth_apb_rx.pwdata[12]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[12]",
-                        "net": "eth_axi_rx.tdata[12]",
-                        "path": []
+                        "name": "la0_probe5[13]",
+                        "net": "eth_apb_rx.pwdata[13]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[13]",
-                        "net": "eth_axi_rx.tdata[13]",
-                        "path": []
+                        "name": "la0_probe5[14]",
+                        "net": "eth_apb_rx.pwdata[14]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[14]",
-                        "net": "eth_axi_rx.tdata[14]",
-                        "path": []
+                        "name": "la0_probe5[15]",
+                        "net": "eth_apb_rx.pwdata[15]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[15]",
-                        "net": "eth_axi_rx.tdata[15]",
-                        "path": []
+                        "name": "la0_probe5[16]",
+                        "net": "eth_apb_rx.pwdata[16]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[16]",
-                        "net": "eth_axi_rx.tdata[16]",
-                        "path": []
+                        "name": "la0_probe5[17]",
+                        "net": "eth_apb_rx.pwdata[17]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[17]",
-                        "net": "eth_axi_rx.tdata[17]",
-                        "path": []
+                        "name": "la0_probe5[18]",
+                        "net": "eth_apb_rx.pwdata[18]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[18]",
-                        "net": "eth_axi_rx.tdata[18]",
-                        "path": []
+                        "name": "la0_probe5[19]",
+                        "net": "eth_apb_rx.pwdata[19]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[19]",
-                        "net": "eth_axi_rx.tdata[19]",
-                        "path": []
+                        "name": "la0_probe5[20]",
+                        "net": "eth_apb_rx.pwdata[20]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[20]",
-                        "net": "eth_axi_rx.tdata[20]",
-                        "path": []
+                        "name": "la0_probe5[21]",
+                        "net": "eth_apb_rx.pwdata[21]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[21]",
-                        "net": "eth_axi_rx.tdata[21]",
-                        "path": []
+                        "name": "la0_probe5[22]",
+                        "net": "eth_apb_rx.pwdata[22]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[22]",
-                        "net": "eth_axi_rx.tdata[22]",
-                        "path": []
+                        "name": "la0_probe5[23]",
+                        "net": "eth_apb_rx.pwdata[23]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[23]",
-                        "net": "eth_axi_rx.tdata[23]",
-                        "path": []
+                        "name": "la0_probe5[24]",
+                        "net": "eth_apb_rx.pwdata[24]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[24]",
-                        "net": "eth_axi_rx.tdata[24]",
-                        "path": []
+                        "name": "la0_probe5[25]",
+                        "net": "eth_apb_rx.pwdata[25]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[25]",
-                        "net": "eth_axi_rx.tdata[25]",
-                        "path": []
+                        "name": "la0_probe5[26]",
+                        "net": "eth_apb_rx.pwdata[26]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[26]",
-                        "net": "eth_axi_rx.tdata[26]",
-                        "path": []
+                        "name": "la0_probe5[27]",
+                        "net": "eth_apb_rx.pwdata[27]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[27]",
-                        "net": "eth_axi_rx.tdata[27]",
-                        "path": []
+                        "name": "la0_probe5[28]",
+                        "net": "eth_apb_rx.pwdata[28]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[28]",
-                        "net": "eth_axi_rx.tdata[28]",
-                        "path": []
+                        "name": "la0_probe5[29]",
+                        "net": "eth_apb_rx.pwdata[29]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[29]",
-                        "net": "eth_axi_rx.tdata[29]",
-                        "path": []
+                        "name": "la0_probe5[30]",
+                        "net": "eth_apb_rx.pwdata[30]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[30]",
-                        "net": "eth_axi_rx.tdata[30]",
-                        "path": []
+                        "name": "la0_probe5[31]",
+                        "net": "eth_apb_rx.pwdata[31]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe6[31]",
-                        "net": "eth_axi_rx.tdata[31]",
-                        "path": []
+                        "name": "la0_probe6",
+                        "net": "eth_apb_rx.penable",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe7[0]",
-                        "net": "eth_axi_rx.tkeep[0]",
-                        "path": []
+                        "net": "eth_apb_rx.pstrb[0]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe7[1]",
-                        "net": "eth_axi_rx.tkeep[1]",
-                        "path": []
+                        "net": "eth_apb_rx.pstrb[1]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe7[2]",
-                        "net": "eth_axi_rx.tkeep[2]",
-                        "path": []
+                        "net": "eth_apb_rx.pstrb[2]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
                         "name": "la0_probe7[3]",
-                        "net": "eth_axi_rx.tkeep[3]",
-                        "path": []
+                        "net": "eth_apb_rx.pstrb[3]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe8[0]",
-                        "net": "eth_axi_rx.tstrb[0]",
-                        "path": []
+                        "name": "la0_probe8",
+                        "net": "eth_apb_rx.pwrite",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe8[1]",
-                        "net": "eth_axi_rx.tstrb[1]",
-                        "path": []
+                        "name": "la0_probe9[0]",
+                        "net": "eth_apb_rx.pprot[0]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe8[2]",
-                        "net": "eth_axi_rx.tstrb[2]",
-                        "path": []
+                        "name": "la0_probe9[1]",
+                        "net": "eth_apb_rx.pprot[1]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe8[3]",
-                        "net": "eth_axi_rx.tstrb[3]",
-                        "path": []
+                        "name": "la0_probe9[2]",
+                        "net": "eth_apb_rx.pprot[2]",
+                        "path": [
+                            "apb2"
+                        ]
                     },
                     {
-                        "name": "la0_probe9",
-                        "net": "eth_axi_rx.tuser[0]",
-                        "path": []
+                        "name": "la0_probe10[0]",
+                        "net": "eth_apb_rx.paddr[0]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[1]",
+                        "net": "eth_apb_rx.paddr[1]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[2]",
+                        "net": "eth_apb_rx.paddr[2]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[3]",
+                        "net": "eth_apb_rx.paddr[3]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[4]",
+                        "net": "eth_apb_rx.paddr[4]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[5]",
+                        "net": "eth_apb_rx.paddr[5]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[6]",
+                        "net": "eth_apb_rx.paddr[6]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[7]",
+                        "net": "eth_apb_rx.paddr[7]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[8]",
+                        "net": "eth_apb_rx.paddr[8]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[9]",
+                        "net": "eth_apb_rx.paddr[9]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[10]",
+                        "net": "eth_apb_rx.paddr[10]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10[11]",
+                        "net": "eth_apb_rx.paddr[11]",
+                        "path": [
+                            "apb2"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11",
+                        "net": "eth_link_up",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe12",
+                        "net": "rx_frame_ready",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13",
+                        "net": "rxfifo_wr_commit",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14",
+                        "net": "rxheader_wr_en",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[0]",
+                        "net": "rxfifo_wr_size[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[1]",
+                        "net": "rxfifo_wr_size[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[2]",
+                        "net": "rxfifo_wr_size[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[3]",
+                        "net": "rxfifo_wr_size[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[4]",
+                        "net": "rxfifo_wr_size[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[5]",
+                        "net": "rxfifo_wr_size[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[6]",
+                        "net": "rxfifo_wr_size[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[7]",
+                        "net": "rxfifo_wr_size[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[8]",
+                        "net": "rxfifo_wr_size[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[9]",
+                        "net": "rxfifo_wr_size[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[10]",
+                        "net": "rxfifo_wr_size[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[11]",
+                        "net": "rxfifo_wr_size[11]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[12]",
+                        "net": "rxfifo_wr_size[12]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[0]",
+                        "net": "rxfifo_packet_size[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[1]",
+                        "net": "rxfifo_packet_size[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[2]",
+                        "net": "rxfifo_packet_size[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[3]",
+                        "net": "rxfifo_packet_size[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[4]",
+                        "net": "rxfifo_packet_size[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[5]",
+                        "net": "rxfifo_packet_size[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[6]",
+                        "net": "rxfifo_packet_size[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[7]",
+                        "net": "rxfifo_packet_size[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[8]",
+                        "net": "rxfifo_packet_size[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[9]",
+                        "net": "rxfifo_packet_size[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[10]",
+                        "net": "rxfifo_packet_size[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[11]",
+                        "net": "rxfifo_packet_size[11]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[12]",
+                        "net": "rxfifo_packet_size[12]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[0]",
+                        "net": "rxfifo_rd_data[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[1]",
+                        "net": "rxfifo_rd_data[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[2]",
+                        "net": "rxfifo_rd_data[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[3]",
+                        "net": "rxfifo_rd_data[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[4]",
+                        "net": "rxfifo_rd_data[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[5]",
+                        "net": "rxfifo_rd_data[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[6]",
+                        "net": "rxfifo_rd_data[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[7]",
+                        "net": "rxfifo_rd_data[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[8]",
+                        "net": "rxfifo_rd_data[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[9]",
+                        "net": "rxfifo_rd_data[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[10]",
+                        "net": "rxfifo_rd_data[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[11]",
+                        "net": "rxfifo_rd_data[11]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[12]",
+                        "net": "rxfifo_rd_data[12]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[13]",
+                        "net": "rxfifo_rd_data[13]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[14]",
+                        "net": "rxfifo_rd_data[14]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[15]",
+                        "net": "rxfifo_rd_data[15]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[16]",
+                        "net": "rxfifo_rd_data[16]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[17]",
+                        "net": "rxfifo_rd_data[17]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[18]",
+                        "net": "rxfifo_rd_data[18]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[19]",
+                        "net": "rxfifo_rd_data[19]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[20]",
+                        "net": "rxfifo_rd_data[20]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[21]",
+                        "net": "rxfifo_rd_data[21]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[22]",
+                        "net": "rxfifo_rd_data[22]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[23]",
+                        "net": "rxfifo_rd_data[23]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[24]",
+                        "net": "rxfifo_rd_data[24]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[25]",
+                        "net": "rxfifo_rd_data[25]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[26]",
+                        "net": "rxfifo_rd_data[26]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[27]",
+                        "net": "rxfifo_rd_data[27]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[28]",
+                        "net": "rxfifo_rd_data[28]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[29]",
+                        "net": "rxfifo_rd_data[29]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[30]",
+                        "net": "rxfifo_rd_data[30]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[31]",
+                        "net": "rxfifo_rd_data[31]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[0]",
+                        "net": "rxheader_rd_data[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[1]",
+                        "net": "rxheader_rd_data[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[2]",
+                        "net": "rxheader_rd_data[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[3]",
+                        "net": "rxheader_rd_data[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[4]",
+                        "net": "rxheader_rd_data[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[5]",
+                        "net": "rxheader_rd_data[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[6]",
+                        "net": "rxheader_rd_data[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[7]",
+                        "net": "rxheader_rd_data[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[8]",
+                        "net": "rxheader_rd_data[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[9]",
+                        "net": "rxheader_rd_data[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18[10]",
+                        "net": "rxheader_rd_data[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[0]",
+                        "net": "rxfifo_wr_data[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[1]",
+                        "net": "rxfifo_wr_data[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[2]",
+                        "net": "rxfifo_wr_data[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[3]",
+                        "net": "rxfifo_wr_data[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[4]",
+                        "net": "rxfifo_wr_data[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[5]",
+                        "net": "rxfifo_wr_data[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[6]",
+                        "net": "rxfifo_wr_data[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[7]",
+                        "net": "rxfifo_wr_data[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[8]",
+                        "net": "rxfifo_wr_data[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[9]",
+                        "net": "rxfifo_wr_data[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[10]",
+                        "net": "rxfifo_wr_data[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[11]",
+                        "net": "rxfifo_wr_data[11]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[12]",
+                        "net": "rxfifo_wr_data[12]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[13]",
+                        "net": "rxfifo_wr_data[13]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[14]",
+                        "net": "rxfifo_wr_data[14]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[15]",
+                        "net": "rxfifo_wr_data[15]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[16]",
+                        "net": "rxfifo_wr_data[16]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[17]",
+                        "net": "rxfifo_wr_data[17]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[18]",
+                        "net": "rxfifo_wr_data[18]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[19]",
+                        "net": "rxfifo_wr_data[19]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[20]",
+                        "net": "rxfifo_wr_data[20]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[21]",
+                        "net": "rxfifo_wr_data[21]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[22]",
+                        "net": "rxfifo_wr_data[22]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[23]",
+                        "net": "rxfifo_wr_data[23]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[24]",
+                        "net": "rxfifo_wr_data[24]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[25]",
+                        "net": "rxfifo_wr_data[25]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[26]",
+                        "net": "rxfifo_wr_data[26]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[27]",
+                        "net": "rxfifo_wr_data[27]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[28]",
+                        "net": "rxfifo_wr_data[28]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[29]",
+                        "net": "rxfifo_wr_data[29]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[30]",
+                        "net": "rxfifo_wr_data[30]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19[31]",
+                        "net": "rxfifo_wr_data[31]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20",
+                        "net": "rxheader_rd_empty",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21",
+                        "net": "rxheader_rd_en",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe22",
+                        "net": "rxfifo_wr_drop",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[0]",
+                        "net": "rxfifo_rd_size[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[1]",
+                        "net": "rxfifo_rd_size[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[2]",
+                        "net": "rxfifo_rd_size[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[3]",
+                        "net": "rxfifo_rd_size[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[4]",
+                        "net": "rxfifo_rd_size[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[5]",
+                        "net": "rxfifo_rd_size[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[6]",
+                        "net": "rxfifo_rd_size[6]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[7]",
+                        "net": "rxfifo_rd_size[7]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[8]",
+                        "net": "rxfifo_rd_size[8]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[9]",
+                        "net": "rxfifo_rd_size[9]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[10]",
+                        "net": "rxfifo_rd_size[10]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[11]",
+                        "net": "rxfifo_rd_size[11]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[12]",
+                        "net": "rxfifo_rd_size[12]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[0]",
+                        "net": "rxheader_rd_size[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[1]",
+                        "net": "rxheader_rd_size[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[2]",
+                        "net": "rxheader_rd_size[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[3]",
+                        "net": "rxheader_rd_size[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[4]",
+                        "net": "rxheader_rd_size[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24[5]",
+                        "net": "rxheader_rd_size[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[0]",
+                        "net": "rxheader_wr_size[0]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[1]",
+                        "net": "rxheader_wr_size[1]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[2]",
+                        "net": "rxheader_wr_size[2]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[3]",
+                        "net": "rxheader_wr_size[3]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[4]",
+                        "net": "rxheader_wr_size[4]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[5]",
+                        "net": "rxheader_wr_size[5]",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe26",
+                        "net": "rxfifo_pop_packet",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe27",
+                        "net": "rxfifo_wr_en",
+                        "path": [
+                            "apb2",
+                            "eth_rx_fifo"
+                        ]
                     }
                 ]
             }
@@ -472,98 +1995,331 @@
     ],
     "session": {
         "wizard": {
-            "data_depth": 2048,
+            "data_depth": 1024,
             "capture_control": false,
             "selected_nets": [
                 {
-                    "name": "gmii_rx_bus.data",
-                    "width": 8,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [],
-                    "net_idx_left": 7,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "gmii_rx_bus.en",
+                    "name": "eth_apb_rx.preset_n",
                     "width": 1,
-                    "clk_domain": "gmii_rxc",
+                    "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
-                    "path": []
+                    "path": [
+                        "apb2"
+                    ]
                 },
                 {
-                    "name": "gmii_rx_bus.er",
-                    "width": 1,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": []
-                },
-                {
-                    "name": "gmii_rx_bus.dvalid",
-                    "width": 1,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": []
-                },
-                {
-                    "name": "eth_axi_rx.tlast",
-                    "width": 1,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": []
-                },
-                {
-                    "name": "eth_axi_rx.tvalid",
-                    "width": 1,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": []
-                },
-                {
-                    "name": "eth_axi_rx.tdata",
+                    "name": "eth_apb_rx.prdata",
                     "width": 32,
-                    "clk_domain": "gmii_rxc",
+                    "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
-                    "path": [],
+                    "path": [
+                        "apb2"
+                    ],
                     "net_idx_left": 31,
                     "net_idx_right": 0
                 },
                 {
-                    "name": "eth_axi_rx.tkeep",
-                    "width": 4,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [],
-                    "net_idx_left": 3,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "eth_axi_rx.tstrb",
-                    "width": 4,
-                    "clk_domain": "gmii_rxc",
-                    "selected_probe_type": "DATA AND TRIGGER",
-                    "child": [],
-                    "path": [],
-                    "net_idx_left": 3,
-                    "net_idx_right": 0
-                },
-                {
-                    "name": "eth_axi_rx.tuser",
+                    "name": "eth_apb_rx.pslverr",
                     "width": 1,
-                    "clk_domain": "gmii_rxc",
+                    "clk_domain": "pclk",
                     "selected_probe_type": "DATA AND TRIGGER",
                     "child": [],
-                    "path": [],
-                    "net_idx_left": 0,
+                    "path": [
+                        "apb2"
+                    ]
+                },
+                {
+                    "name": "eth_apb_rx.pready",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ]
+                },
+                {
+                    "name": "eth_apb_rx.psel",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ]
+                },
+                {
+                    "name": "eth_apb_rx.pwdata",
+                    "width": 32,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ],
+                    "net_idx_left": 31,
                     "net_idx_right": 0
+                },
+                {
+                    "name": "eth_apb_rx.penable",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ]
+                },
+                {
+                    "name": "eth_apb_rx.pstrb",
+                    "width": 4,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ],
+                    "net_idx_left": 3,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "eth_apb_rx.pwrite",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ]
+                },
+                {
+                    "name": "eth_apb_rx.pprot",
+                    "width": 3,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ],
+                    "net_idx_left": 2,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "eth_apb_rx.paddr",
+                    "width": 12,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2"
+                    ],
+                    "net_idx_left": 11,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "eth_link_up",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rx_frame_ready",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxfifo_wr_commit",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxheader_wr_en",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxfifo_wr_size",
+                    "width": 13,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 12,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxfifo_packet_size",
+                    "width": 13,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 12,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxfifo_rd_data",
+                    "width": 32,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxheader_rd_data",
+                    "width": 11,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 10,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxfifo_wr_data",
+                    "width": 32,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxheader_rd_empty",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxheader_rd_en",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxfifo_wr_drop",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxfifo_rd_size",
+                    "width": 13,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 12,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxheader_rd_size",
+                    "width": 6,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 5,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxheader_wr_size",
+                    "width": 6,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ],
+                    "net_idx_left": 5,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rxfifo_pop_packet",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
+                },
+                {
+                    "name": "rxfifo_wr_en",
+                    "width": 1,
+                    "clk_domain": "pclk",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "apb2",
+                        "eth_rx_fifo"
+                    ]
                 }
             ],
             "top_module": "top",

@@ -1,3 +1,5 @@
+`timescale 1ns/1ps
+`default_nettype none
 /***********************************************************************************************************************
 *                                                                                                                      *
 * efinix-tests                                                                                                         *
@@ -27,90 +29,102 @@
 *                                                                                                                      *
 ***********************************************************************************************************************/
 
-#include "bootloader.h"
-/*#include "BootloaderUDPProtocol.h"
-#include "BootloaderTCPProtocol.h"
-#include "BootloaderCLISessionContext.h"*/
+module Peripherals_APB2(
 
-//Application region of flash starts at the beginning of external SPI flash
-//Firmware version string is put right after vector table by linker script at a constant address
-uint32_t* const g_appVector  = reinterpret_cast<uint32_t*>(0x9000'0000);
+	//125 MHz RGMII TX clock
+	input wire					clk_125mhz,
 
-//Offset of the version string (size of the vector table plus 32 byte alignment)
-const uint32_t g_appVersionOffset = 0x2e0;
+	//Upstream bus interface
+	APB.completer				apb,
 
-///@brief Output stream for local serial console
-UARTOutputStream g_localConsoleOutputStream;
-/*
-///@brief Context data structure for local serial console
-BootloaderCLISessionContext g_localConsoleSessionContext;
+	//Ethernet status flags
+	input wire					link_up_phyclk,
 
-///@brief The SSH server
-BootloaderSSHTransportServer* g_sshd = nullptr;
-*/
+	//Ethernet AXI interfaces
+	AXIStream.receiver			eth_axi_rx,
+	AXIStream.transmitter		eth_axi_tx,
 
-extern bool g_bootAppPending;
-extern uint32_t g_bootAppTimer;
+	//IRQ pin to GPIO block
+	output wire					irq
+);
 
-///@brief Number of sectors in the image
-const uint32_t g_flashSectorCount = 5;
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Root interconnect bridge (c001_0000, 4 kB / 0x1000 segments per peripheral)
 
-///@brief Size of a sector
-const uint32_t g_flashSectorSize = 128 * 1024;
+	//APB1 segment
+	localparam NUM_PERIPHERALS	= 2;
+	localparam BLOCK_SIZE		= 32'h1000;
+	localparam ADDR_WIDTH		= $clog2(BLOCK_SIZE);
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) apb2[NUM_PERIPHERALS-1:0]();
+	APBBridge #(
+		.BASE_ADDR(32'h0000_0000),
+		.BLOCK_SIZE(BLOCK_SIZE),
+		.NUM_PORTS(NUM_PERIPHERALS)
+	) bridge (
+		.upstream(apb),
+		.downstream(apb2)
+	);
 
-///@brief Size of the image
-const uint32_t g_appImageSize = g_flashSectorCount * g_flashSectorSize;
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Cross AXI RX buses for Ethernet into management clock domain
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Hooks called by bootloader code
+	AXIStream #(.DATA_WIDTH(32), .ID_WIDTH(0), .DEST_WIDTH(0), .USER_WIDTH(1)) eth_axi_rx_pclk();
 
-void Bootloader_Init()
-{
-	g_log("Bootloader init\n");
+	AXIS_CDC #(
+		.FIFO_DEPTH(1024)
+	) eth_rx_cdc (
+		.axi_rx(eth_axi_rx),
 
-	RTC::Unlock();
+		.tx_clk(apb.pclk),
+		.axi_tx(eth_axi_rx_pclk)
+	);
 
-	//Initialize the local console
-	//g_localConsoleOutputStream.Initialize(&g_cliUART);
-	//g_localConsoleSessionContext.Initialize(&g_localConsoleOutputStream, "localadmin");
-}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Shift link state flags into management clock domain
 
-void Bootloader_ClearRxBuffer()
-{
-}
+	wire	link_up;
 
-void Bootloader_FinalCleanup()
-{
-	g_cliUART.Flush();
-}
+	ThreeStageSynchronizer #(
+		.IN_REG(1)
+	) sync_link_up(
+		.clk_in(eth_axi_rx.aclk),
+		.din(link_up_phyclk),
+		.clk_out(apb.pclk),
+		.dout(link_up));
 
-void __attribute__((noreturn)) BSP_MainLoop()
-{
-	Bootloader_MainLoop();
-}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Interrupt pin generation
 
-void RegisterProtocolHandlers(IPv4Protocol& ipv4)
-{
-	g_log("register handlers\n");
+	wire	rx_frame_ready;
 
-	/*
-	static BootloaderTCPProtocol tcp(&ipv4);
-	static BootloaderUDPProtocol udp(&ipv4);
-	ipv4.UseTCP(&tcp);
-	ipv4.UseUDP(&udp);
-	g_dhcpClient = &udp.GetDHCP();
-	*/
-}
+	assign irq = rx_frame_ready;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Run the firmware updater
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// FIFOs for storing inbound/outbound Ethernet frames
 
-void __attribute__((noreturn)) Bootloader_FirmwareUpdateFlow()
-{
-	g_log("In DFU mode\n");
+	//RGMII RX FIFO (0xc001_0000)
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) eth_apb_rx();
+	APBRegisterSlice #(.UP_REG(0), .DOWN_REG(1))
+		apb_regslice_rx( .upstream(apb2[0]), .downstream(eth_apb_rx) );
 
-	//Show the initial prompt
-	//g_localConsoleSessionContext.PrintPrompt();
+	APB_AXIS_EthernetRxBuffer eth_rx_fifo(
+		.apb(eth_apb_rx),
+		.axi_rx(eth_axi_rx_pclk),
+		.eth_link_up(link_up),
+		.rx_frame_ready(rx_frame_ready)
+	);
 
-	DefaultMainLoop();
-}
+	//RGMII TX FIFO (0xc001_1000)
+	APB #(.DATA_WIDTH(32), .ADDR_WIDTH(ADDR_WIDTH), .USER_WIDTH(0)) eth_apb_tx();
+	APBRegisterSlice #(.UP_REG(0), .DOWN_REG(1))
+		apb_regslice_tx( .upstream(apb2[1]), .downstream(eth_apb_tx) );
+
+	APB_AXIS_EthernetTxBuffer eth_tx_fifo(
+		.apb(eth_apb_tx),
+
+		.tx_clk(clk_125mhz),
+		.link_up_pclk(link_up),
+		.axi_tx(eth_axi_tx)
+	);
+
+endmodule

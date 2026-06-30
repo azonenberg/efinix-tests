@@ -35,6 +35,7 @@
 #include <peripheral/CRC.h>
 #include <peripheral/Flash.h>
 #include <peripheral/GPIO.h>
+#include <peripheral/RTC.h>
 #include <peripheral/SPI.h>
 #include <peripheral/UART.h>
 
@@ -69,6 +70,8 @@ void InitI2C();
 extern GPIOPin g_leds[4];
 extern APB_GPIOPin g_fpgaLEDs[8];
 extern APB_SpiFlashInterface* g_fpgaFlash;
+extern APB_GPIOPin g_fpgaIRQ;
+
 /*
 //extern bool g_usingDHCP;
 //extern ManagementDHCPClient* g_dhcpClient;

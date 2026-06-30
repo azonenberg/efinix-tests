@@ -1,21 +1,22 @@
-[dumpfile] "/tmp/tmphll3o4_r/la0tmp_continous.vcd"
-[dumpfile_mtime] "Mon Sep 08 11:37:28 2025"
-[dumpfile_size] 2763
+[dumpfile] "/tmp/tmpqsmnten8/la0tmp_continous.vcd"
+[dumpfile_mtime] "Thu Oct 02 06:35:11 2025"
+[dumpfile_size] 986
 [savefile] "/ceph/fast/home/azonenberg/code/efinix-tests/trion-t20-bga256/stm32h750-expansion/rtl/stm32-test/la0_waveform.gtkw"
 [timestart] 0
 [size] 1000 600
 [pos] -1 -1
-*0.000000 c 16 2064 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*0.000000 c 32 1056 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [signals_width] 126
 [sst_expanded] 1
 @22
-top.gmii_rx_bus.data[7:0]
-top.gmii_rx_bus.en
-top.gmii_rx_bus.er
-top.gmii_rx_bus.dvalid
-top.eth_axi_rx.tlast
-top.eth_axi_rx.tvalid
-top.eth_axi_rx.tdata[31:0]
-top.eth_axi_rx.tkeep[3:0]
-top.eth_axi_rx.tstrb[3:0]
-top.eth_axi_rx.tuser
+top.apb2/eth_apb_rx.preset_n
+top.apb2/eth_apb_rx.prdata[31:0]
+top.apb2/eth_apb_rx.pslverr
+top.apb2/eth_apb_rx.pready
+top.apb2/eth_apb_rx.psel
+top.apb2/eth_apb_rx.pwdata[31:0]
+top.apb2/eth_apb_rx.penable
+top.apb2/eth_apb_rx.pstrb[3:0]
+top.apb2/eth_apb_rx.pwrite
+top.apb2/eth_apb_rx.pprot[2:0]
+top.apb2/eth_apb_rx.paddr[11:0]
