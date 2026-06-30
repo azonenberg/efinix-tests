@@ -74,6 +74,14 @@ module top(
 	//assign sfp_a_TXD = { 24'h0, prbs_out };
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Counter to make some activity for the VIO
+
+	logic[31:0] count = 0;
+	always_ff @(posedge clk_100mhz) begin
+		count <= count + 1;
+	end
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Extract incoming raw data
 
 	// Seems like there's no 8b10b decoding available in PMA direct mode? do we have to do that ourselves?
@@ -241,52 +249,40 @@ module top(
 		.gpio_in(gpio_in),
 		.gpio_tris());
 
-	assign led 				= gpio_out[5:0];
+	//assign led 				= gpio_out[5:0];
 	assign sfp_a_tx_disable	= gpio_out[6];
 	assign sfp_a_rs			= gpio_out[8:7];
-
-	assign gpio_in[0]		= sfp_a_tx_fault;
-	assign gpio_in[1]		= sfp_a_rx_los;
-	assign gpio_in[2]		= sfp_a_mod_abs;
-	assign gpio_in[31:3]	= 0;
+	assign gpio_in[31:0]	= 0;
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// VIO (0x4000_0800)
 
 	APB_VIO #(
-		.OUT0_NAME("foo"),
-		.OUT0_WIDTH(16),
-		.OUT1_NAME("bar"),
-		.OUT1_WIDTH(32),
-		.OUT2_NAME("baz"),
-		.OUT2_WIDTH(64),
-		.OUT3_NAME("foobar"),
-		.OUT3_WIDTH(64),
+		.OUT0_NAME("led"),
+		.OUT0_WIDTH(6),
+		.OUT0_INIT(0),
 
-		.IN0_NAME("input_a"),
-		.IN0_WIDTH(32),
-		.IN1_NAME("kibby"),
-		.IN1_WIDTH(32)
+		.IN0_NAME("sfp_a_tx_fault"),
+		.IN0_WIDTH(1),
+		.IN1_NAME("sfp_a_rx_los"),
+		.IN1_WIDTH(1),
+		.IN2_NAME("sfp_a_mod_abs"),
+		.IN2_WIDTH(1),
+		.IN3_NAME("deadbeef"),
+		.IN3_WIDTH(32),
+		.IN4_NAME("count"),
+		.IN4_WIDTH(32)
+
 	) vio (
 		.apb(apbLevel1[2]),
 
-		.probe_out0(),
-		.probe_out1(),
-		.probe_out2(),
-		.probe_out3(),
-		.probe_out4(),
-		.probe_out5(),
-		.probe_out6(),
-		.probe_out7(),
+		.probe_out0(led),
 
-		.probe_in0(32'hcafebabe),
-		.probe_in1(32'hc0def00d),
-		.probe_in2(),
-		.probe_in3(),
-		.probe_in4(),
-		.probe_in5(),
-		.probe_in6(),
-		.probe_in7()
+		.probe_in0(sfp_a_tx_fault),
+		.probe_in1(sfp_a_rx_los),
+		.probe_in2(sfp_a_mod_abs),
+		.probe_in3(32'hdeadbeef),
+		.probe_in4(count)
 	);
 
 endmodule
