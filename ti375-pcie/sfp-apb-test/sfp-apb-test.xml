@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<efx:project name="initial-tests" description="" sw_version="2026.1.132" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
+<efx:project name="sfp-apb-test" description="" sw_version="2026.1.132" xmlns:efx="http://www.efinixinc.com/enf_proj" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.efinixinc.com/enf_proj enf_proj.xsd">
     <efx:device_info>
         <efx:family name="Titanium"/>
         <efx:device name="Ti375N1156"/>
         <efx:timing_model name="C4"/>
     </efx:device_info>
-    <efx:design_info def_veri_version="sv_09" def_vhdl_version="vhdl_2008" unified_flow="true" partition_interface_allowed_off_perimeter="true">
+    <efx:design_info def_veri_version="sv_23" def_vhdl_version="vhdl_2008" unified_flow="true" partition_interface_allowed_off_perimeter="true">
         <efx:top_module name="top"/>
-        <efx:design_file name="../../antikernel-ipcores/amba/apb/APBTypes.sv" version="default" library="default"/>
-        <efx:design_file name="top.sv" version="default" library="default"/>
-        <efx:design_file name="../../antikernel-ipcores/math/PRBS31.sv" version="default" library="default"/>
-        <efx:design_file name="../../antikernel-ipcores/interface/uart/UART.sv" version="default" library="default"/>
-        <efx:design_file name="../../antikernel-ipcores/clock/crossing/ThreeStageSynchronizer.sv" version="default" library="default"/>
-        <efx:design_file name="../../antikernel-ipcores/amba/bridging/UART_APBBridge.sv" version="default" library="default"/>
+        <efx:design_file name="rtl/top.sv" version="default" library="default"/>
         <efx:design_file name="../../antikernel-ipcores/amba/apb/APBBridge.sv" version="default" library="default"/>
-        <efx:design_file name="../../antikernel-ipcores/interface/gpio/APB_GPIO.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/amba/apb/APBTypes.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/clock/crossing/ThreeStageSynchronizer.sv" version="default" library="default"/>
         <efx:design_file name="../../antikernel-ipcores/debug/DebugROM.sv" version="default" library="default"/>
         <efx:design_file name="../../antikernel-ipcores/debug/APB_VIO.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/interface/gpio/APB_GPIO.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/interface/uart/UART.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/math/PRBS31.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/amba/bridging/UART_APBBridge.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/serdes/linecode/BitslipAligner.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/serdes/linecode/SymbolAligner8b10b.sv" version="default" library="default"/>
+        <efx:design_file name="../../antikernel-ipcores/serdes/linecode/Decode8b10b_Lane.sv" version="default" library="default"/>
         <efx:top_vhdl_arch name=""/>
         <efx:msg_config name=""/>
         <efx:partition_definitions name=""/>
         <efx:partition_interface_assignments name=""/>
     </efx:design_info>
     <efx:interface_info>
-        <efx:default_peri_file name="initial-tests.peri.xml"/>
-        <efx:peri_file name="initial-tests.peri.xml"/>
+        <efx:default_peri_file name="sfp-apb-test.peri.xml"/>
+        <efx:peri_file name="sfp-apb-test.peri.xml"/>
     </efx:interface_info>
     <efx:constraint_info>
-        <efx:sdc_file name="timing.sdc"/>
+        <efx:sdc_file name="constraints/timing.sdc"/>
         <efx:inter_file name=""/>
-        <efx:isf_file name="initial-tests_io.isf"/>
     </efx:constraint_info>
     <efx:sim_info/>
     <efx:misc_info/>
@@ -64,14 +66,12 @@
         <efx:param name="peri-syn-instantiation" value="1" value_type="e_option"/>
         <efx:param name="peri-syn-inference" value="1" value_type="e_option"/>
         <efx:param name="ram-decomp-mode" value="0" value_type="e_option"/>
-        <efx:param name="retiming" value="1" value_type="e_option"/>
+        <efx:param name="retiming" value="2" value_type="e_option"/>
         <efx:param name="seq_opt" value="1" value_type="e_option"/>
         <efx:param name="seq-opt-sync-only" value="0" value_type="e_option"/>
         <efx:param name="use-logic-for-small-mem" value="64" value_type="e_integer"/>
         <efx:param name="use-logic-for-small-rom" value="64" value_type="e_integer"/>
         <efx:param name="max_threads" value="-1" value_type="e_integer"/>
-        <efx:param name="suppress_info_msgs" value="off" value_type="e_string"/>
-        <efx:param name="suppress_warning_msgs" value="off" value_type="e_string"/>
         <efx:param name="dsp-input-regs-packing" value="1" value_type="e_option"/>
         <efx:param name="dsp-output-regs-packing" value="1" value_type="e_option"/>
         <efx:param name="dsp-mac-packing" value="1" value_type="e_option"/>
@@ -86,8 +86,6 @@
         <efx:param name="placer_effort_level" value="2" value_type="e_option"/>
         <efx:param name="max_threads" value="-1" value_type="e_integer"/>
         <efx:param name="print_critical_path" value="10" value_type="e_integer"/>
-        <efx:param name="suppress_info_msgs" value="off" value_type="e_string"/>
-        <efx:param name="suppress_warning_msgs" value="off" value_type="e_string"/>
         <efx:param name="beneficial_skew" value="on" value_type="e_option"/>
     </efx:place_and_route>
     <efx:bitstream_generation tool_name="efx_pgm">
@@ -117,6 +115,10 @@
     </efx:debugger>
     <efx:security>
         <efx:param name="randomize_iv_value" value="on" value_type="e_bool"/>
+        <efx:param name="iv_value" value="" value_type="e_string"/>
+        <efx:param name="sc_bitstream_encrypt_use_black_key" value="on" value_type="e_bool"/>
+        <efx:param name="sc_bitstream_encrypt_randomize_iv_value" value="on" value_type="e_bool"/>
+        <efx:param name="sc_bitstream_encrypt_iv_value" value="" value_type="e_string"/>
         <efx:param name="enable_bitstream_encrypt" value="off" value_type="e_bool"/>
         <efx:param name="enable_bitstream_auth" value="off" value_type="e_bool"/>
         <efx:param name="encryption_key_file" value="NONE" value_type="e_string"/>

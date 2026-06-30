@@ -19,19 +19,19 @@ module top(
 
 	//SFP+ interface: SERDES
 	(* syn_peri_port = 0 *) input wire	sfp_quad_PMA_CMN_READY,
-	(* syn_peri_port = 0 *) input wire	prbs_tx_clk,
-	(* syn_peri_port = 0 *) input wire	prbs_rx_clk,
-	(* syn_peri_port = 0 *) output wire prbs_gen_PCS_RST_N_RX,
-	(* syn_peri_port = 0 *) output wire prbs_gen_PCS_RST_N_TX,
-	(* syn_peri_port = 0 *) output wire prbs_gen_PHY_RESET_N,
-	(* syn_peri_port = 0 *) output wire prbs_gen_PMA_TX_ELEC_IDLE,
-	(* syn_peri_port = 0 *) input wire[63:0] prbs_gen_RXD,		//only 31:0 used
-	(* syn_peri_port = 0 *) output wire[63:0] prbs_gen_TXD,		//only 31:0 used
-	(* syn_peri_port = 0 *) input wire prbs_gen_PMA_XCVR_PLLCLK_EN_ACK,
-	(* syn_peri_port = 0 *) output wire prbs_gen_PMA_XCVR_PLLCLK_EN,
-	(* syn_peri_port = 0 *) input wire[3:0] prbs_gen_PMA_XCVR_POWER_STATE_ACK,
-	(* syn_peri_port = 0 *) output wire[3:0] prbs_gen_PMA_XCVR_POWER_STATE_REQ,
-	(* syn_peri_port = 0 *) input wire prbs_gen_PMA_RX_SIGNAL_DETECT,
+	(* syn_peri_port = 0 *) input wire	sfp_a_tx_clk,
+	(* syn_peri_port = 0 *) input wire	sfp_a_rx_clk,
+	(* syn_peri_port = 0 *) output wire sfp_a_PCS_RST_N_RX,
+	(* syn_peri_port = 0 *) output wire sfp_a_PCS_RST_N_TX,
+	(* syn_peri_port = 0 *) output wire sfp_a_PHY_RESET_N,
+	//(* syn_peri_port = 0 *) output wire sfp_a_PMA_TX_ELEC_IDLE,
+	(* syn_peri_port = 0 *) input wire[63:0] sfp_a_RXD,		//only 31:0 used
+	(* syn_peri_port = 0 *) output wire[63:0] sfp_a_TXD,		//only 31:0 used
+	(* syn_peri_port = 0 *) input wire sfp_a_PMA_XCVR_PLLCLK_EN_ACK,
+	(* syn_peri_port = 0 *) output wire sfp_a_PMA_XCVR_PLLCLK_EN,
+	(* syn_peri_port = 0 *) input wire[3:0] sfp_a_PMA_XCVR_POWER_STATE_ACK,
+	(* syn_peri_port = 0 *) output wire[3:0] sfp_a_PMA_XCVR_POWER_STATE_REQ,
+	(* syn_peri_port = 0 *) input wire sfp_a_PMA_RX_SIGNAL_DETECT,
 
 	//SFP+ interface: low speed GPIOs
 	input wire			sfp_a_tx_fault,
@@ -45,30 +45,79 @@ module top(
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Tie off reset etc for now
 
-	assign prbs_gen_PCS_RST_N_RX = 1;
-	assign prbs_gen_PCS_RST_N_TX = 1;
-	assign prbs_gen_PHY_RESET_N = 1;
-	assign prbs_gen_PMA_TX_ELEC_IDLE = 0;
-	assign prbs_gen_PMA_XCVR_PLLCLK_EN = 1;
-	assign prbs_gen_PMA_XCVR_POWER_STATE_REQ = 4'b0001;	//TX/RX active
+	assign sfp_a_PCS_RST_N_RX = 1;
+	assign sfp_a_PCS_RST_N_TX = 1;
+	assign sfp_a_PHY_RESET_N = 1;
+	//assign sfp_a_PMA_TX_ELEC_IDLE = 0;
+	assign sfp_a_PMA_XCVR_PLLCLK_EN = 1;
+	assign sfp_a_PMA_XCVR_POWER_STATE_REQ = 4'b0001;	//TX/RX active
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Debug: send PRBS31
 
-	wire[31:0] prbs_out;
+	wire[19:0] prbs_out;
 
 	PRBS31 #(
-		.WIDTH(32),
+		.WIDTH(20),
 		.INITIAL_SEED(31'h1)
 	) prbs (
-		.clk(prbs_tx_clk),
+		.clk(sfp_a_tx_clk),
 		.update(1),
 		.init(0),
 		.seed(31'h1),
 		.dout(prbs_out)
 	);
 
-	assign prbs_gen_TXD = { 32'h0000_0000, prbs_out };
+	//Weird lane mapping... 51:32 and 19:0 are valid in 40 bit mode??
+	//assign sfp_a_TXD = { 12'h0, prbs_out[39:20], 12'h0, prbs_out[19:0] };
+	assign sfp_a_TXD = { 44'h0, prbs_out[19:0] };
+	//assign sfp_a_TXD = { 24'h0, prbs_out };
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	// Extract incoming raw data
+
+	// Seems like there's no 8b10b decoding available in PMA direct mode? do we have to do that ourselves?
+
+	wire[19:0]	sfp_a_rx_data = sfp_a_RXD[19:0];
+	wire		rx_bitslip;
+	(* mark_debug *) wire[19:0]	sfp_rx_data_slipped;
+
+	BitslipAligner #(
+		.WIDTH(20),
+		.REVERSE(1)
+	) rx_gearbox (
+		.clk(sfp_a_rx_clk),
+		.data_in(sfp_a_rx_data),
+		.bitslip(rx_bitslip),
+		.data_out(sfp_rx_data_slipped)
+	);
+
+	wire		rx_symbol_locked;
+	wire		rx_no_commas;
+	SymbolAligner8b10b rx_comma_aligner(
+		.clk(sfp_a_rx_clk),
+		.codeword_valid(1),
+		.comma_window(sfp_rx_data_slipped),
+		.locked(rx_symbol_locked),
+		.no_commas(rx_no_commas),
+		.bitslip(rx_bitslip)
+	);
+
+	(* mark_debug *) wire[1:0]	rx_data_is_ctl;
+	(* mark_debug *) wire[15:0]	rx_data;
+	(* mark_debug *) wire[1:0]	rx_symbol_err;
+
+	for(genvar g=0; g<2; g++) begin : rxlanes
+		Decode8b10b_Lane rx_decode(
+			.clk(sfp_a_rx_clk),
+			.codeword_valid(1),
+			.codeword_in(sfp_rx_data_slipped[g*10 +: 10]),
+			.data_valid(),
+			.data(rx_data[g*8 +: 8]),
+			.data_is_ctl(rx_data_is_ctl[g]),
+			.symbol_err(rx_symbol_err[g])
+		);
+	end
 
 	////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	// Seems we have no direct clock inputs, everything has to go through a PLL

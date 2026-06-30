@@ -1,6 +1,6 @@
 # Efinity Interface Configuration
 # Version: 2026.1.132
-# Date: 2026-06-25 22:59
+# Date: 2026-06-30 02:51
 #
 # Copyright (C) 2013 - 2026 Efinix Inc. All rights reserved.
 #
@@ -263,3 +263,10 @@ design.assign_pkg_pin("sdio_dat1","AE26")
 design.assign_resource("pll","PLL_TR1","PLL")
 design.assign_resource("osc","OSC_0","OSC")
 design.assign_resource("prbs_gen","Q1_LN0","PMA_DIRECT")
+
+design.assign_pkg_pin("sfp_a_tx_fault","R10")
+design.assign_pkg_pin("sfp_a_tx_disable","P10")
+design.assign_pkg_pin("sfp_a_rx_los","N9")
+design.assign_pkg_pin("sfp_a_rs[0]","L6")
+design.assign_pkg_pin("sfp_a_rs[1]","M8")
+design.assign_pkg_pin("sfp_a_mod_abs","M7")
