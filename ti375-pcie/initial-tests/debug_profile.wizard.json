@@ -1,0 +1,2902 @@
+{
+    "debug_cores": [
+        {
+            "name": "la0",
+            "type": "la",
+            "uuid": "209f08c2a4524466b73a4a1cf3b7c14a",
+            "trigin_en": false,
+            "trigout_en": false,
+            "auto_inserted": true,
+            "capture_control": false,
+            "data_depth": 8192,
+            "input_pipeline": 1,
+            "probes": [
+                {
+                    "name": "vio/apb_penable",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_prdata",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_pready",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_preset_n",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_psel",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_pslverr",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_pstrb",
+                    "width": 4,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_pwdata",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_pwrite",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/paddr_is_name",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/paddr_is_output",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/paddr_port_idx",
+                    "width": 3,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/paddr_word_idx",
+                    "width": 3,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/probe_out0_int",
+                    "width": 16,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/probe_out1_int",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/probe_out2_int",
+                    "width": 64,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/probe_out3_int",
+                    "width": 64,
+                    "probe_type": 1
+                },
+                {
+                    "name": "vio/apb_paddr",
+                    "width": 10,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/tx_done",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/rx_en",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/tx_data",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/state",
+                    "width": 8,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/rst_count",
+                    "width": 4,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/rd_data_ff",
+                    "width": 32,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/tx_en",
+                    "width": 1,
+                    "probe_type": 1
+                },
+                {
+                    "name": "uartBridge/rx_data",
+                    "width": 8,
+                    "probe_type": 1
+                }
+            ]
+        }
+    ],
+    "connections": [
+        {
+            "command": "add_ports",
+            "id": 1,
+            "args": {
+                "netlist": "top",
+                "ports": [
+                    {
+                        "name": "jtag_inst1_autodbg_CAPTURE__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_DRCK__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_RESET__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_RUNTEST__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_SEL__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_SHIFT__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_TCK__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_TDI__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_TMS__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_UPDATE__",
+                        "dir": "in",
+                        "width": 1
+                    },
+                    {
+                        "name": "jtag_inst1_autodbg_TDO__",
+                        "dir": "out",
+                        "width": 1
+                    }
+                ]
+            }
+        },
+        {
+            "command": "instantiate",
+            "netlist": "edb_top",
+            "id": 2,
+            "instance": "edb_top_autodbg_inst__"
+        },
+        {
+            "command": "connect",
+            "id": 3,
+            "args": {
+                "instance": "edb_top_autodbg_inst__",
+                "ports": [
+                    {
+                        "name": "bscan_CAPTURE",
+                        "net": "jtag_inst1_autodbg_CAPTURE__"
+                    },
+                    {
+                        "name": "bscan_DRCK",
+                        "net": "jtag_inst1_autodbg_DRCK__"
+                    },
+                    {
+                        "name": "bscan_RESET",
+                        "net": "jtag_inst1_autodbg_RESET__"
+                    },
+                    {
+                        "name": "bscan_RUNTEST",
+                        "net": "jtag_inst1_autodbg_RUNTEST__"
+                    },
+                    {
+                        "name": "bscan_SEL",
+                        "net": "jtag_inst1_autodbg_SEL__"
+                    },
+                    {
+                        "name": "bscan_SHIFT",
+                        "net": "jtag_inst1_autodbg_SHIFT__"
+                    },
+                    {
+                        "name": "bscan_TCK",
+                        "net": "jtag_inst1_autodbg_TCK__"
+                    },
+                    {
+                        "name": "bscan_TDI",
+                        "net": "jtag_inst1_autodbg_TDI__"
+                    },
+                    {
+                        "name": "bscan_TMS",
+                        "net": "jtag_inst1_autodbg_TMS__"
+                    },
+                    {
+                        "name": "bscan_UPDATE",
+                        "net": "jtag_inst1_autodbg_UPDATE__"
+                    },
+                    {
+                        "name": "bscan_TDO",
+                        "net": "jtag_inst1_autodbg_TDO__"
+                    },
+                    {
+                        "name": "la0_clk",
+                        "net": "clk_100mhz",
+                        "path": []
+                    },
+                    {
+                        "name": "la0_probe0",
+                        "net": "apb_penable",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[0]",
+                        "net": "apb_prdata[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[1]",
+                        "net": "apb_prdata[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[2]",
+                        "net": "apb_prdata[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[3]",
+                        "net": "apb_prdata[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[4]",
+                        "net": "apb_prdata[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[5]",
+                        "net": "apb_prdata[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[6]",
+                        "net": "apb_prdata[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[7]",
+                        "net": "apb_prdata[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[8]",
+                        "net": "apb_prdata[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[9]",
+                        "net": "apb_prdata[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[10]",
+                        "net": "apb_prdata[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[11]",
+                        "net": "apb_prdata[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[12]",
+                        "net": "apb_prdata[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[13]",
+                        "net": "apb_prdata[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[14]",
+                        "net": "apb_prdata[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[15]",
+                        "net": "apb_prdata[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[16]",
+                        "net": "apb_prdata[16]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[17]",
+                        "net": "apb_prdata[17]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[18]",
+                        "net": "apb_prdata[18]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[19]",
+                        "net": "apb_prdata[19]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[20]",
+                        "net": "apb_prdata[20]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[21]",
+                        "net": "apb_prdata[21]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[22]",
+                        "net": "apb_prdata[22]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[23]",
+                        "net": "apb_prdata[23]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[24]",
+                        "net": "apb_prdata[24]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[25]",
+                        "net": "apb_prdata[25]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[26]",
+                        "net": "apb_prdata[26]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[27]",
+                        "net": "apb_prdata[27]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[28]",
+                        "net": "apb_prdata[28]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[29]",
+                        "net": "apb_prdata[29]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[30]",
+                        "net": "apb_prdata[30]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe1[31]",
+                        "net": "apb_prdata[31]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe2",
+                        "net": "apb_pready",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe3",
+                        "net": "apb_preset_n",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe4",
+                        "net": "apb_psel",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe5",
+                        "net": "apb_pslverr",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[0]",
+                        "net": "apb_pstrb[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[1]",
+                        "net": "apb_pstrb[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[2]",
+                        "net": "apb_pstrb[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe6[3]",
+                        "net": "apb_pstrb[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[0]",
+                        "net": "apb_pwdata[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[1]",
+                        "net": "apb_pwdata[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[2]",
+                        "net": "apb_pwdata[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[3]",
+                        "net": "apb_pwdata[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[4]",
+                        "net": "apb_pwdata[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[5]",
+                        "net": "apb_pwdata[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[6]",
+                        "net": "apb_pwdata[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[7]",
+                        "net": "apb_pwdata[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[8]",
+                        "net": "apb_pwdata[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[9]",
+                        "net": "apb_pwdata[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[10]",
+                        "net": "apb_pwdata[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[11]",
+                        "net": "apb_pwdata[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[12]",
+                        "net": "apb_pwdata[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[13]",
+                        "net": "apb_pwdata[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[14]",
+                        "net": "apb_pwdata[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[15]",
+                        "net": "apb_pwdata[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[16]",
+                        "net": "apb_pwdata[16]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[17]",
+                        "net": "apb_pwdata[17]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[18]",
+                        "net": "apb_pwdata[18]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[19]",
+                        "net": "apb_pwdata[19]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[20]",
+                        "net": "apb_pwdata[20]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[21]",
+                        "net": "apb_pwdata[21]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[22]",
+                        "net": "apb_pwdata[22]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[23]",
+                        "net": "apb_pwdata[23]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[24]",
+                        "net": "apb_pwdata[24]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[25]",
+                        "net": "apb_pwdata[25]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[26]",
+                        "net": "apb_pwdata[26]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[27]",
+                        "net": "apb_pwdata[27]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[28]",
+                        "net": "apb_pwdata[28]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[29]",
+                        "net": "apb_pwdata[29]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[30]",
+                        "net": "apb_pwdata[30]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe7[31]",
+                        "net": "apb_pwdata[31]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe8",
+                        "net": "apb_pwrite",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe9",
+                        "net": "paddr_is_name",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe10",
+                        "net": "paddr_is_output",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[0]",
+                        "net": "paddr_port_idx[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[1]",
+                        "net": "paddr_port_idx[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe11[2]",
+                        "net": "paddr_port_idx[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe12[0]",
+                        "net": "paddr_word_idx[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe12[1]",
+                        "net": "paddr_word_idx[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe12[2]",
+                        "net": "paddr_word_idx[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[0]",
+                        "net": "probe_out0_int[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[1]",
+                        "net": "probe_out0_int[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[2]",
+                        "net": "probe_out0_int[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[3]",
+                        "net": "probe_out0_int[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[4]",
+                        "net": "probe_out0_int[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[5]",
+                        "net": "probe_out0_int[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[6]",
+                        "net": "probe_out0_int[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[7]",
+                        "net": "probe_out0_int[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[8]",
+                        "net": "probe_out0_int[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[9]",
+                        "net": "probe_out0_int[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[10]",
+                        "net": "probe_out0_int[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[11]",
+                        "net": "probe_out0_int[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[12]",
+                        "net": "probe_out0_int[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[13]",
+                        "net": "probe_out0_int[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[14]",
+                        "net": "probe_out0_int[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe13[15]",
+                        "net": "probe_out0_int[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[0]",
+                        "net": "probe_out1_int[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[1]",
+                        "net": "probe_out1_int[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[2]",
+                        "net": "probe_out1_int[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[3]",
+                        "net": "probe_out1_int[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[4]",
+                        "net": "probe_out1_int[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[5]",
+                        "net": "probe_out1_int[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[6]",
+                        "net": "probe_out1_int[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[7]",
+                        "net": "probe_out1_int[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[8]",
+                        "net": "probe_out1_int[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[9]",
+                        "net": "probe_out1_int[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[10]",
+                        "net": "probe_out1_int[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[11]",
+                        "net": "probe_out1_int[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[12]",
+                        "net": "probe_out1_int[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[13]",
+                        "net": "probe_out1_int[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[14]",
+                        "net": "probe_out1_int[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[15]",
+                        "net": "probe_out1_int[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[16]",
+                        "net": "probe_out1_int[16]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[17]",
+                        "net": "probe_out1_int[17]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[18]",
+                        "net": "probe_out1_int[18]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[19]",
+                        "net": "probe_out1_int[19]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[20]",
+                        "net": "probe_out1_int[20]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[21]",
+                        "net": "probe_out1_int[21]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[22]",
+                        "net": "probe_out1_int[22]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[23]",
+                        "net": "probe_out1_int[23]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[24]",
+                        "net": "probe_out1_int[24]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[25]",
+                        "net": "probe_out1_int[25]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[26]",
+                        "net": "probe_out1_int[26]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[27]",
+                        "net": "probe_out1_int[27]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[28]",
+                        "net": "probe_out1_int[28]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[29]",
+                        "net": "probe_out1_int[29]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[30]",
+                        "net": "probe_out1_int[30]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe14[31]",
+                        "net": "probe_out1_int[31]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[0]",
+                        "net": "probe_out2_int[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[1]",
+                        "net": "probe_out2_int[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[2]",
+                        "net": "probe_out2_int[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[3]",
+                        "net": "probe_out2_int[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[4]",
+                        "net": "probe_out2_int[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[5]",
+                        "net": "probe_out2_int[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[6]",
+                        "net": "probe_out2_int[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[7]",
+                        "net": "probe_out2_int[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[8]",
+                        "net": "probe_out2_int[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[9]",
+                        "net": "probe_out2_int[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[10]",
+                        "net": "probe_out2_int[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[11]",
+                        "net": "probe_out2_int[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[12]",
+                        "net": "probe_out2_int[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[13]",
+                        "net": "probe_out2_int[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[14]",
+                        "net": "probe_out2_int[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[15]",
+                        "net": "probe_out2_int[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[16]",
+                        "net": "probe_out2_int[16]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[17]",
+                        "net": "probe_out2_int[17]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[18]",
+                        "net": "probe_out2_int[18]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[19]",
+                        "net": "probe_out2_int[19]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[20]",
+                        "net": "probe_out2_int[20]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[21]",
+                        "net": "probe_out2_int[21]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[22]",
+                        "net": "probe_out2_int[22]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[23]",
+                        "net": "probe_out2_int[23]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[24]",
+                        "net": "probe_out2_int[24]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[25]",
+                        "net": "probe_out2_int[25]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[26]",
+                        "net": "probe_out2_int[26]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[27]",
+                        "net": "probe_out2_int[27]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[28]",
+                        "net": "probe_out2_int[28]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[29]",
+                        "net": "probe_out2_int[29]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[30]",
+                        "net": "probe_out2_int[30]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[31]",
+                        "net": "probe_out2_int[31]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[32]",
+                        "net": "probe_out2_int[32]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[33]",
+                        "net": "probe_out2_int[33]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[34]",
+                        "net": "probe_out2_int[34]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[35]",
+                        "net": "probe_out2_int[35]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[36]",
+                        "net": "probe_out2_int[36]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[37]",
+                        "net": "probe_out2_int[37]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[38]",
+                        "net": "probe_out2_int[38]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[39]",
+                        "net": "probe_out2_int[39]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[40]",
+                        "net": "probe_out2_int[40]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[41]",
+                        "net": "probe_out2_int[41]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[42]",
+                        "net": "probe_out2_int[42]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[43]",
+                        "net": "probe_out2_int[43]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[44]",
+                        "net": "probe_out2_int[44]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[45]",
+                        "net": "probe_out2_int[45]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[46]",
+                        "net": "probe_out2_int[46]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[47]",
+                        "net": "probe_out2_int[47]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[48]",
+                        "net": "probe_out2_int[48]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[49]",
+                        "net": "probe_out2_int[49]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[50]",
+                        "net": "probe_out2_int[50]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[51]",
+                        "net": "probe_out2_int[51]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[52]",
+                        "net": "probe_out2_int[52]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[53]",
+                        "net": "probe_out2_int[53]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[54]",
+                        "net": "probe_out2_int[54]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[55]",
+                        "net": "probe_out2_int[55]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[56]",
+                        "net": "probe_out2_int[56]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[57]",
+                        "net": "probe_out2_int[57]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[58]",
+                        "net": "probe_out2_int[58]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[59]",
+                        "net": "probe_out2_int[59]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[60]",
+                        "net": "probe_out2_int[60]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[61]",
+                        "net": "probe_out2_int[61]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[62]",
+                        "net": "probe_out2_int[62]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe15[63]",
+                        "net": "probe_out2_int[63]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[0]",
+                        "net": "probe_out3_int[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[1]",
+                        "net": "probe_out3_int[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[2]",
+                        "net": "probe_out3_int[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[3]",
+                        "net": "probe_out3_int[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[4]",
+                        "net": "probe_out3_int[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[5]",
+                        "net": "probe_out3_int[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[6]",
+                        "net": "probe_out3_int[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[7]",
+                        "net": "probe_out3_int[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[8]",
+                        "net": "probe_out3_int[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[9]",
+                        "net": "probe_out3_int[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[10]",
+                        "net": "probe_out3_int[10]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[11]",
+                        "net": "probe_out3_int[11]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[12]",
+                        "net": "probe_out3_int[12]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[13]",
+                        "net": "probe_out3_int[13]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[14]",
+                        "net": "probe_out3_int[14]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[15]",
+                        "net": "probe_out3_int[15]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[16]",
+                        "net": "probe_out3_int[16]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[17]",
+                        "net": "probe_out3_int[17]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[18]",
+                        "net": "probe_out3_int[18]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[19]",
+                        "net": "probe_out3_int[19]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[20]",
+                        "net": "probe_out3_int[20]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[21]",
+                        "net": "probe_out3_int[21]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[22]",
+                        "net": "probe_out3_int[22]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[23]",
+                        "net": "probe_out3_int[23]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[24]",
+                        "net": "probe_out3_int[24]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[25]",
+                        "net": "probe_out3_int[25]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[26]",
+                        "net": "probe_out3_int[26]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[27]",
+                        "net": "probe_out3_int[27]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[28]",
+                        "net": "probe_out3_int[28]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[29]",
+                        "net": "probe_out3_int[29]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[30]",
+                        "net": "probe_out3_int[30]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[31]",
+                        "net": "probe_out3_int[31]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[32]",
+                        "net": "probe_out3_int[32]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[33]",
+                        "net": "probe_out3_int[33]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[34]",
+                        "net": "probe_out3_int[34]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[35]",
+                        "net": "probe_out3_int[35]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[36]",
+                        "net": "probe_out3_int[36]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[37]",
+                        "net": "probe_out3_int[37]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[38]",
+                        "net": "probe_out3_int[38]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[39]",
+                        "net": "probe_out3_int[39]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[40]",
+                        "net": "probe_out3_int[40]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[41]",
+                        "net": "probe_out3_int[41]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[42]",
+                        "net": "probe_out3_int[42]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[43]",
+                        "net": "probe_out3_int[43]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[44]",
+                        "net": "probe_out3_int[44]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[45]",
+                        "net": "probe_out3_int[45]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[46]",
+                        "net": "probe_out3_int[46]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[47]",
+                        "net": "probe_out3_int[47]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[48]",
+                        "net": "probe_out3_int[48]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[49]",
+                        "net": "probe_out3_int[49]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[50]",
+                        "net": "probe_out3_int[50]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[51]",
+                        "net": "probe_out3_int[51]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[52]",
+                        "net": "probe_out3_int[52]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[53]",
+                        "net": "probe_out3_int[53]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[54]",
+                        "net": "probe_out3_int[54]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[55]",
+                        "net": "probe_out3_int[55]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[56]",
+                        "net": "probe_out3_int[56]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[57]",
+                        "net": "probe_out3_int[57]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[58]",
+                        "net": "probe_out3_int[58]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[59]",
+                        "net": "probe_out3_int[59]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[60]",
+                        "net": "probe_out3_int[60]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[61]",
+                        "net": "probe_out3_int[61]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[62]",
+                        "net": "probe_out3_int[62]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe16[63]",
+                        "net": "probe_out3_int[63]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[0]",
+                        "net": "apb_paddr[0]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[1]",
+                        "net": "apb_paddr[1]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[2]",
+                        "net": "apb_paddr[2]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[3]",
+                        "net": "apb_paddr[3]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[4]",
+                        "net": "apb_paddr[4]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[5]",
+                        "net": "apb_paddr[5]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[6]",
+                        "net": "apb_paddr[6]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[7]",
+                        "net": "apb_paddr[7]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[8]",
+                        "net": "apb_paddr[8]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe17[9]",
+                        "net": "apb_paddr[9]",
+                        "path": [
+                            "vio"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe18",
+                        "net": "tx_done",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe19",
+                        "net": "rx_en",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[0]",
+                        "net": "tx_data[0]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[1]",
+                        "net": "tx_data[1]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[2]",
+                        "net": "tx_data[2]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[3]",
+                        "net": "tx_data[3]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[4]",
+                        "net": "tx_data[4]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[5]",
+                        "net": "tx_data[5]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[6]",
+                        "net": "tx_data[6]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe20[7]",
+                        "net": "tx_data[7]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[0]",
+                        "net": "state[0]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[1]",
+                        "net": "state[1]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[2]",
+                        "net": "state[2]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[3]",
+                        "net": "state[3]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[4]",
+                        "net": "state[4]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[5]",
+                        "net": "state[5]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[6]",
+                        "net": "state[6]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe21[7]",
+                        "net": "state[7]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe22[0]",
+                        "net": "rst_count[0]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe22[1]",
+                        "net": "rst_count[1]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe22[2]",
+                        "net": "rst_count[2]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe22[3]",
+                        "net": "rst_count[3]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[0]",
+                        "net": "rd_data_ff[0]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[1]",
+                        "net": "rd_data_ff[1]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[2]",
+                        "net": "rd_data_ff[2]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[3]",
+                        "net": "rd_data_ff[3]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[4]",
+                        "net": "rd_data_ff[4]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[5]",
+                        "net": "rd_data_ff[5]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[6]",
+                        "net": "rd_data_ff[6]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[7]",
+                        "net": "rd_data_ff[7]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[8]",
+                        "net": "rd_data_ff[8]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[9]",
+                        "net": "rd_data_ff[9]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[10]",
+                        "net": "rd_data_ff[10]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[11]",
+                        "net": "rd_data_ff[11]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[12]",
+                        "net": "rd_data_ff[12]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[13]",
+                        "net": "rd_data_ff[13]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[14]",
+                        "net": "rd_data_ff[14]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[15]",
+                        "net": "rd_data_ff[15]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[16]",
+                        "net": "rd_data_ff[16]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[17]",
+                        "net": "rd_data_ff[17]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[18]",
+                        "net": "rd_data_ff[18]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[19]",
+                        "net": "rd_data_ff[19]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[20]",
+                        "net": "rd_data_ff[20]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[21]",
+                        "net": "rd_data_ff[21]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[22]",
+                        "net": "rd_data_ff[22]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[23]",
+                        "net": "rd_data_ff[23]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[24]",
+                        "net": "rd_data_ff[24]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[25]",
+                        "net": "rd_data_ff[25]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[26]",
+                        "net": "rd_data_ff[26]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[27]",
+                        "net": "rd_data_ff[27]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[28]",
+                        "net": "rd_data_ff[28]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[29]",
+                        "net": "rd_data_ff[29]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[30]",
+                        "net": "rd_data_ff[30]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe23[31]",
+                        "net": "rd_data_ff[31]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe24",
+                        "net": "tx_en",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[0]",
+                        "net": "rx_data[0]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[1]",
+                        "net": "rx_data[1]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[2]",
+                        "net": "rx_data[2]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[3]",
+                        "net": "rx_data[3]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[4]",
+                        "net": "rx_data[4]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[5]",
+                        "net": "rx_data[5]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[6]",
+                        "net": "rx_data[6]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    },
+                    {
+                        "name": "la0_probe25[7]",
+                        "net": "rx_data[7]",
+                        "path": [
+                            "uartBridge"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "vdbs": [
+        {
+            "file": "debug_top.post.vdb",
+            "instance": "edb_top_autodbg_inst__"
+        }
+    ],
+    "session": {
+        "wizard": {
+            "data_depth": 8192,
+            "capture_control": false,
+            "selected_nets": [
+                {
+                    "name": "apb_penable",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "apb_prdata",
+                    "width": 32,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_pready",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "apb_preset_n",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "apb_psel",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "apb_pslverr",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "apb_pstrb",
+                    "width": 4,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 3,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_pwdata",
+                    "width": 32,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_pwrite",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "paddr_is_name",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "paddr_is_output",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ]
+                },
+                {
+                    "name": "paddr_port_idx",
+                    "width": 3,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 2,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "paddr_word_idx",
+                    "width": 3,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 2,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "probe_out0_int",
+                    "width": 16,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 15,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "probe_out1_int",
+                    "width": 32,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "probe_out2_int",
+                    "width": 64,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 63,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "probe_out3_int",
+                    "width": 64,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 63,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "apb_paddr",
+                    "width": 10,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "vio"
+                    ],
+                    "net_idx_left": 9,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "tx_done",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ]
+                },
+                {
+                    "name": "rx_en",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ]
+                },
+                {
+                    "name": "tx_data",
+                    "width": 8,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "state",
+                    "width": 8,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rst_count",
+                    "width": 4,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ],
+                    "net_idx_left": 3,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "rd_data_ff",
+                    "width": 32,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ],
+                    "net_idx_left": 31,
+                    "net_idx_right": 0
+                },
+                {
+                    "name": "tx_en",
+                    "width": 1,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ]
+                },
+                {
+                    "name": "rx_data",
+                    "width": 8,
+                    "clk_domain": "clk_100mhz",
+                    "selected_probe_type": "DATA AND TRIGGER",
+                    "child": [],
+                    "path": [
+                        "uartBridge"
+                    ],
+                    "net_idx_left": 7,
+                    "net_idx_right": 0
+                }
+            ],
+            "top_module": "top",
+            "src": "elaborate",
+            "jtag_user": "USER1",
+            "input_pipeline": 1
+        }
+    }
+}

@@ -1,0 +1,7 @@
+ip
+ooc
+work_*
+*.vcd
+.lock
+outflow
+*.gtkw
